@@ -25,4 +25,11 @@ class HomeController extends Controller
       $viewData["title"] = "About Page - Game";
       return view("home.about")->with("viewData", $viewData);
     }
+
+    public function support()
+    {
+      $viewData = [];
+      $viewData["title"] = "Support Page - Game";
+      return view("home.support")->with("viewData", $viewData);
+    }
 }

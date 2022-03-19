@@ -2,121 +2,160 @@
 @section("title", $viewData["title"])
 @section("content")
 
+<div class="d-flex justify-content-around align-items-center" style="height: calc(100vh - 3rem);">
+  <div class="container d-flex justify-content-around align-items-center">
+    <div class="col-md-5">
+      <h1>Category</h1>
+      <h2>How?</h2>
+      <p class="fs-3">In game store the games are separated by categories, so it is easier to find what you are looking for or there is something that interests you</p>
+      
+      <div class="row">
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <i class="fa-solid fa-magnifying-glass fs-5 mb-1 me-2"></i>
+          <h3>Search</h3>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <i class="fa-solid fa-arrow-pointer fs-5 mb-1 me-2"></i>
+          <h3>Enter</h3>
+        </div>
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+          <i class="fa-solid fa-cart-shopping fs-5 mb-1 me-2"></i>
+          <h3>Buying</h3>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-5">
+      <img src="./img/logo2.png" alt="">
+    </div>
+  </div>
+</div>
+
+<div class="bg-dark">
   <div class="container">
-    <h1 class="text-center">{{ $viewData["subTitle"] }}</h1>
     <div class="row">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <div class="card my-4">
           <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Free To Play</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
 
         <div class="card my-4">
           <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Free To Play</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
 
         <div class="card my-4">
           <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Free To Play</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
 
         <div class="card my-4">
           <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Free To Play</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+
+      <div class="col-md-3">
         <div class="card my-4">
-          <img src="https://colorearimagenes.net/wp-content/uploads/2020/08/Ojos40.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Demo</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
 
         <div class="card my-4">
-          <img src="https://colorearimagenes.net/wp-content/uploads/2020/08/Ojos40.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Demo</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
 
         <div class="card my-4">
-          <img src="https://colorearimagenes.net/wp-content/uploads/2020/08/Ojos40.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Demo</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
 
         <div class="card my-4">
-          <img src="https://colorearimagenes.net/wp-content/uploads/2020/08/Ojos40.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Demo</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
+
+      <div class="col-md-3">
         <div class="card my-4">
-          <img src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/26.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Default Access</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
 
         <div class="card my-4">
-          <img src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/26.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Default Access</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
 
         <div class="card my-4">
-          <img src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/26.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Default Access</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
 
         <div class="card my-4">
-          <img src="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/26.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body bg-dark text-light d-flex flex-column justify-content-center">
-            <h5 class="card-title text-center">Default Access</h5>
-            <p class="card-text text-justify">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste repudiandae voluptatem numquam nemo alias temporibus sequi impedit dolor rem nesciunt?</p>
-            <a href="#" class="btn btn-outline-light">Go</a>
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card my-4">
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
+          </div>
+        </div>
+
+        <div class="card my-4">
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
+          </div>
+        </div>
+
+        <div class="card my-4">
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
+          </div>
+        </div>
+
+        <div class="card my-4">
+          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <a class="btn btn-dark">Free To Play</a>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 @endsection

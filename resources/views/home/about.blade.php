@@ -2,10 +2,10 @@
 @section("title", $viewData["title"])
 @section("content")
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h1 class="text-center">Game Store</h1>
+<div class="d-flex justify-content-around align-items-center" style="height: calc(100vh - 3rem);">
+  <div class="container d-flex justify-content-around align-items-center">
+    <div class="col-md-6">
+      <h1 class="text-center">Game Store</h1>
         <p class="fs-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, non reprehenderit! Expedita quos deleniti et!</p>
         <div class="d-flex p-4 justify-content-between">
           <p>
@@ -19,10 +19,16 @@
           </p>
         </div>
       </div>
-      <div class="col-md-6">
-        <img src="https://images.pexels.com/photos/7855663/pexels-photo-7855663.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style="width: 100%; height: 50vh; object-fit:cover;" alt="">
-      </div>
+
     </div>
+
+    <div class="col-md-5">
+      <img src="./img/logo2.png" alt="">
+    </div>
+  </div>
+</div>
+
+  <div class="container">
 
     <div class="row justify-content-center my-5">
       <div class="col-md-6 bg-dark text-light p-5 rounded shadow-lg">
