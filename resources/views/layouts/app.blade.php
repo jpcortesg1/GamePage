@@ -47,13 +47,15 @@
           <a class="btn btn-outline-light mx-3" href="{{ route('login') }}">Login</a>
           <a class="btn btn-outline-light mx-3" href="{{ route('register') }}">Register</a>
         @else
-          <li class="nav-item d-flex align-items-center">
-            <a class="btn btn-outline-light mx-3" href="{{ route('home.about') }}">Account</a>
+        <div class="d-flex flex-row-reverse bd-highlight">
+          <li class="nav-item">
+              <a class="btn btn-outline-light mx-3" href="{{ route('home.about') }}">Account</a>
           </li>
-          <form id="logout" class="d-flex align-items-center" action="{{ route('logout') }}" method="POST">
-          <a role="button" class="btn btn-outline-light mx-3"
+          <form id="logout" action="{{ route('logout') }}" method="POST">
+          <a role="button" class="btn btn-outline-light mx-3 ml-15"
           onclick="document.getElementById('logout').submit();">Logout</a>
-            @csrf
+        </div>
+        @csrf
           </form>
         @endguest
     </div>
