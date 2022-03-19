@@ -31,7 +31,7 @@
               <a class="nav-link" aria-current="page" href="{{ route('home.index') }}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('home.categories') }}">Categories</a>
+              <a class="nav-link" href="{{ route('category.index') }}">Categories</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">About</a>
