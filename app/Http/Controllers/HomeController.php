@@ -15,8 +15,15 @@ class HomeController extends Controller
     {
       $viewData = [];
       $viewData["title"] = "Home Page - Game";
-      $viewData["subTitle"] = "Game";
       return view("home.index")->with("viewData", $viewData);
+    }
+
+    public function categories()
+    {
+      $viewData = [];
+      $viewData["title"] = "Categories - Game";
+      $viewData["subTitle"] = "Categories";
+      return view("home.categories")->with("viewData", $viewData);
     }
 
     /**
