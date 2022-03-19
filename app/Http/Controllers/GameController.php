@@ -4,23 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class GameController extends Controller
 {
-    public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index($id)
     {
       $viewData = [];
-      $viewData["title"] = "Categories - Game";
-      $viewData["subTitle"] = "Categories";
-      return view("category.index")->with("viewData", $viewData);
-    }
-
-    public function category($id)
-    {
-      $viewData = [];
-      $viewData["title"] =  "Category - Game";
-      $viewData["subtitle"] = "Name of Category";
-
-      return view('category.category')->with("viewData", $viewData);
+      $viewData["title"] = "Name Game - Game";
+      $viewData["subTitle"] = "Name of Game";
+      return view("game.index")->with("viewData", $viewData);
     }
 
     /**
