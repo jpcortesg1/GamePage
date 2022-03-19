@@ -19,3 +19,7 @@ Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@category')
 
 // Game page
 Route::get('/game/{id}', 'App\Http\Controllers\GameController@index')->name('game.index');
+
+Auth::routes();
+
+
