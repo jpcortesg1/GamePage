@@ -19,3 +19,11 @@ Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@category')
 
 // Game page
 Route::get('/game/{id}', 'App\Http\Controllers\GameController@index')->name('game.index');
+
+Auth::routes();
+
+Route::middleware('admin')->group(function () {
+
+    Route::get('/admin', 'App\Http\Controllers\AdminHomeController@index')->name("admin.index"); 
+    
+});
