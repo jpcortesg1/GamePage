@@ -13,10 +13,8 @@ class GameController extends Controller
      */
     public function index($id)
     {
-      $viewData = [];
-      $viewData["title"] = "Name Game - Game";
-      $viewData["subTitle"] = "Name of Game";
-      return view("game.index")->with("viewData", $viewData);
+        $games = Game::all();
+        return view ('games.index')->with('games', $games);
     }
 
     /**
@@ -26,7 +24,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        return view ('games.create');
     }
 
     /**
@@ -37,7 +35,9 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Game::create($input);
+        return redirect('game')->with('flash_message', 'Game Addedd!');
     }
 
     /**
@@ -48,7 +48,8 @@ class GameController extends Controller
      */
     public function show($id)
     {
-        //
+        $game = Game::find($id);
+        return view('games.show')->with('games',  $game);
     }
 
     /**
@@ -59,7 +60,8 @@ class GameController extends Controller
      */
     public function edit($id)
     {
-        //
+        $game = Game::find($id);
+        return view('games.edit')->with('games', $game);
     }
 
     /**
@@ -71,7 +73,10 @@ class GameController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $game = Game::find($id);
+        $input = $request->all();
+        $game->update($input);
+        return redirect('game')->with('flash_message', 'Student Updated!');
     }
 
     /**
@@ -82,6 +87,7 @@ class GameController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Game::destroy($id);
+        return redirect('game')->with('flash_message', 'Student Deleted!');
     }
 }
