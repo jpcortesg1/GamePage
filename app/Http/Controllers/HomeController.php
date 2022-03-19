@@ -17,4 +17,12 @@ class HomeController extends Controller
       $viewData["title"] = "Home Page - Game";
       return view("home.index")->with("viewData", $viewData);
     }
+
+    // About page
+    public function about()
+    {
+      $viewData = [];
+      $viewData["title"] = "About Page - Game";
+      return view("home.about")->with("viewData", $viewData);
+    }
 }
