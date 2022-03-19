@@ -12,7 +12,7 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="{{ route('home.index') }}">Game Store</a>
+      <a class="navbar-brand" href="{{ route('home.index') }}"><img src="./img/logo1.png" style="height: 3rem;" alt=""></a>
       <button
         class="navbar-toggler"
         type="button"
@@ -37,7 +37,7 @@
               <a class="nav-link" href="{{ route('home.about') }}">About</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Support</a>
+              <a href="{{ route('home.support') }}" class="nav-link">Support</a>
             </li>
           </ul>
         </div>
@@ -51,7 +51,7 @@
     </div>
   </nav>
 
-  <div style="margin-top: 4rem; min-height: calc(100vh - 3rem);">
+  <div style="margin-top: 3.5rem; min-height: calc(100vh - 3rem);">
     @yield("content")
   </div>
 
