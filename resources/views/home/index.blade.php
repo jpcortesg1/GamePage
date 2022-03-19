@@ -34,7 +34,7 @@
     <div class="card-body">
       <h5 class="card-title">Game Store</h5>
       <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, voluptates asperiores? Maiores beatae repellat, aperiam pariatur repellendus, velit fugiat aliquid alias est cupiditate nihil saepe deleniti enim mollitia adipisci quas?</p>
-      <a href="/register" class="btn btn-primary">Get Started</a>
+      <a href="/register" class="btn btn-dark">Get Started</a>
     </div>
   </div>
 
