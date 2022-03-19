@@ -18,14 +18,6 @@ class HomeController extends Controller
       return view("home.index")->with("viewData", $viewData);
     }
 
-    public function categories()
-    {
-      $viewData = [];
-      $viewData["title"] = "Categories - Game";
-      $viewData["subTitle"] = "Categories";
-      return view("home.categories")->with("viewData", $viewData);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
