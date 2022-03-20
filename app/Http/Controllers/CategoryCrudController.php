@@ -15,7 +15,7 @@ class CategoryCrudController extends Controller
     public function index()
     {
         $categories = Category::all();
-        return view('categoryCrud.index')->with('categories',$categories);
+        return view('CategoryCrud.index')->with('categories',$categories);
     }
 
     /**
@@ -25,7 +25,7 @@ class CategoryCrudController extends Controller
      */
     public function create()
     {
-        return view('categoryCrud.create');
+        return view('CategoryCrud.create');
     }
 
     /**
@@ -67,7 +67,7 @@ class CategoryCrudController extends Controller
     public function edit($id)
     {
         $category = Categories::find($id);
-        return view('categoryCrud.edit')->with('category',$category);
+        return view('CategoryCrud.edit')->with('category',$category);
     }
 
     /**

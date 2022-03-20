@@ -37,7 +37,7 @@
             <td>{{$game->buyquantity}}</td>
             <td>
                 <form action="{{ route ('games.destroy',$game->id)}}" method="POST">
-                <a href="/games/{{ $games->id}}/edit" class="btn btn-info">Edit</a>
+                <a href="/games/{{ $game->getId()}}/edit" class="btn btn-info">Edit</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger">Delete</button>
