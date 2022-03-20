@@ -14,10 +14,15 @@ class game extends Model
     protected $table = 'games';
     protected $primaryKey = 'id';
     protected $fillable = ['name', 'developer', 'description', 'id_category', 'releasedate', 'price', 'rating', 'agerating'];
-    
-    public function games()
+
+    public function getId()
     {
-        $this->BelongsTo(Category::class);
-        
+      return $this->attributes['id'];
     }
+    
+
+    // public function games()
+    // {
+    //   $this->BelongsTo(Category::class);
+    // }
 }

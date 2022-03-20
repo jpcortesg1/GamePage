@@ -41,7 +41,7 @@ class GameCrudController extends Controller
         $games->name = $request->get('name');
         $games->developer = $request->get('developer');
         $games->description = $request->get('description');
-       
+        $games->id_category = $request->get('id_category');
         $games->releasedate = $request->get('releasedate');
         $games->price = $request->get('price');
         $games->agerating = $request->get('agerating');
@@ -71,7 +71,7 @@ class GameCrudController extends Controller
      */
     public function edit($id)
     {
-        $game = Games::find($id);
+        $game = Game::find($id);
         return view('gameCrud.edit')->with('game',$game);
     }
 
