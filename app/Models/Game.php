@@ -13,5 +13,11 @@ class game extends Model
     // $this->attributes['description'] - string - contains the product description
     protected $table = 'games';
     protected $primaryKey = 'id';
-    protected $fillable = ['name', 'developer', 'description', 'genre', 'releasedate', 'price', 'rating', 'agerating'];
+    protected $fillable = ['name', 'developer', 'description', 'id_category', 'releasedate', 'price', 'rating', 'agerating'];
+    
+    public function games()
+    {
+        $this->BelongsTo(Category::class);
+        
+    }
 }

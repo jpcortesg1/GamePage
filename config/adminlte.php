@@ -247,12 +247,26 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Info',
+            'url'         => 'admin',
+            'icon'        => 'fas fa-fw fa-info',
         ],
+        [
+            'text'        => 'Users',
+            'url'         => 'users',
+            'icon'        => 'fas fa-fw fa-user',
+        ],
+        [
+            'text'        => 'Categories',
+            'url'         => 'categoryc',
+            'icon'        => 'fas fa-fw fa-folder',
+        ],
+        [
+            'text'        => 'Games',
+            'url'         => 'games',
+            'icon'        => 'fas fa-fw fa-gamepad',
+        ],
+        
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
