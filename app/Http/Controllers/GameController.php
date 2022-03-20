@@ -19,6 +19,12 @@ class GameController extends Controller
       return view("game.index")->with("viewData", $viewData);
     }
 
+    public function adminIndex()
+    {
+      $games = Game::all();
+      return view('gameCrud.index')->with('games',$games);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +32,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+      return view('gameCrud.create');
     }
 
     /**
@@ -37,7 +43,20 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $games = new Game();
+
+      $games->name = $request->get('name');
+      $games->developer = $request->get('developer');
+      $games->description = $request->get('description');
+      $games->id_category = $request->get('id_category');
+      $games->releasedate = $request->get('releasedate');
+      $games->price = $request->get('price');
+      $games->agerating = $request->get('agerating');
+      $games->buyquantity = $request->get('buyquantity');
+
+      $games->save();
+
+      return redirect('/games');
     }
 
     /**
@@ -59,7 +78,8 @@ class GameController extends Controller
      */
     public function edit($id)
     {
-        //
+      $game = Game::find($id);
+      return view('gameCrud.edit')->with('game',$game);
     }
 
     /**
@@ -71,7 +91,20 @@ class GameController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $game = Game::find($id);
+
+      $game->name = $request->get('name');
+      $game->developer = $request->get('developer');
+      $game->description = $request->get('description');
+      $game->id_category = $request->get('id_category');
+      $game->releasedate = $request->get('releasedate');
+      $game->price = $request->get('price');
+      $game->agerating = $request->get('agerating');
+      $game->buyquantity = $request->get('buyquantity');
+
+      $game->save();
+
+      return redirect('/games');
     }
 
     /**
@@ -82,6 +115,8 @@ class GameController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $game = Game::find($id);
+      $game->delete();
+      return redirect('/games');
     }
 }

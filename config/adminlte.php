@@ -258,7 +258,7 @@ return [
         ],
         [
             'text'        => 'Categories',
-            'url'         => 'categoryc',
+            'url'         => 'admin/category',
             'icon'        => 'fas fa-fw fa-folder',
         ],
         [

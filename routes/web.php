@@ -20,9 +20,6 @@ Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@category')
 // Game page
 Route::get('/game/{id}', 'App\Http\Controllers\GameController@index')->name('game.index');
 
-
-
-
 Auth::routes();
 
 Route::middleware('admin')->group(function () {
@@ -31,6 +28,22 @@ Route::middleware('admin')->group(function () {
 
     Route::resource("/games", 'App\Http\Controllers\GameCrudController');
 
-    Route::resource("/categoryc", 'App\Http\Controllers\CategoryCrudController');
+    // Admin category page
+    Route::get("/admin/category", 'App\Http\Controllers\CategoryController@indexAdmin')->name("admin.category");
+
+    // Admin create category page
+    Route::get("/admin/category/create", 'App\Http\Controllers\CategoryController@create')->name("admin.categoryCreate");
+
+    // Admin update category page
+    Route::get("/admin/category/edit/{id}", 'App\Http\Controllers\CategoryController@edit')->name("admin.categoryEdit");
+
+    // Admin create category page
+    Route::post("/admin/category/create", 'App\Http\Controllers\CategoryController@store')->name("admin.categoryStore");
+
+    // Admin update category page
+    Route::put("/admin/category/update/{id}", 'App\Http\Controllers\CategoryController@update')->name("admin.categoryUpdate");
+
+    // Delete category
+    Route::get("/admin/category/delete/{id}", 'App\Http\Controllers\CategoryController@destroy')->name("admin.categoryDelete");
     
 });
