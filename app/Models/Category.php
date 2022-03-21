@@ -13,7 +13,7 @@ class Category extends Model
   // $this->attributes['description'] - string - contains the product description
   // $this->attributes['images'] - string - contains the path of image 
 
-  protected $fillable = ['id', 'name', 'description'];
+  protected $fillable = ['id', 'name', 'description', 'image'];
 
   public function getId()
   {
@@ -53,5 +53,15 @@ class Category extends Model
   public function setImage($image)
   {
     $this->attributes['image'] = $image;
+  }
+
+  public function getCreateAt()
+  {
+    return $this->attributes['created_at'];
+  }
+
+  public function getUpdateAt()
+  {
+    return $this->attributes['updated_at'];
   }
 }

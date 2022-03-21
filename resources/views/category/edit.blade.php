@@ -32,7 +32,7 @@
     <label for="" class="form-label">Image</label>
     <input id="image" name="image" type="file" class="form-control" />
   </div>
-  <div>
+  <div class="d-flex justify-content-center">
     <img
       src="./../../../image/category/{{ $viewData['category']->getImage() }}"
       alt=""
