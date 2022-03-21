@@ -14,33 +14,33 @@
         <label for="" class="form-label">{{ __('Name') }}</label>
         <div class="col-md-6">
             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+        @error('name')
+          <span class="invalid-feedback d-block" role="alert">
+            <strong>*{{ $message }}</strong>
+          </span>
+        @enderror 
         </div>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">{{ __('Email Address') }}</label>
         <div class="col-md-6">
             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-            @error('email')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+        @error('email')
+          <span class="invalid-feedback d-block" role="alert">
+            <strong>*{{ $message }}</strong>
+          </span>
+        @enderror 
         </div>
     </div>
     <div class="mb-3">
         <label for="" class="form-label">{{ __('Password') }}</label>
         <div class="col-md-6">
             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-            @error('password')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
+        @error('password')
+          <span class="invalid-feedback d-block" role="alert">
+            <strong>*{{ $message }}</strong>
+          </span>
+        @enderror 
         </div>
     </div>
     <div class="mb-3">
@@ -48,12 +48,22 @@
         <div class="col-md-6">
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
         </div>
+        @error('confirm password')
+          <span class="invalid-feedback d-block" role="alert">
+            <strong>*{{ $message }}</strong>
+          </span>
+        @enderror 
     </div>
     <div class="mb-3">
         <label for="" class="form-label">Role</label>
         <div class="col-md-6">
             <input id="rol" name="rol" type="text" class="form-control" tabindex="2"/>
         </div>
+        @error('rol')
+          <span class="invalid-feedback d-block" role="alert">
+            <strong>*{{ $message }}</strong>
+          </span>
+        @enderror 
     </div>
     <a href="{{ route('admin.user') }}" class="btn btn-secondary" tabindex="5">Cancel</a>
     <button type="submit" class="btn bg-dark text-white">{{ __('Register') }}</button>

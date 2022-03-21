@@ -18,7 +18,6 @@
 
 <div class="small-box bg-danger">
   <div class="inner">
-    <h3>150</h3>
     <p>Games</p>
   </div>
   <div class="icon">

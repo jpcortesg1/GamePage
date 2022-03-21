@@ -36,6 +36,13 @@ class CategoryController extends Controller
   // Method for create new category
   public function store(Request $request)
   {
+
+    $request->validate([
+      'name'=>'required',
+      'description'=>'required',
+      'image'=>'required'
+    ]);
+
     // Create unique name of image
     $filename = time() . $request->image->getClientOriginalName();
 
