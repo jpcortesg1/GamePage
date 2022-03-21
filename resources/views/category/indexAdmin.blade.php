@@ -2,44 +2,44 @@
 @section('content_header')
 <h1>Category List</h1>
 @stop @section('content')
-<a href="{{ route('admin.categoryCreate') }}" class="btn btn-primary mb-3"
-  >Create</a
->
+<a href="{{ route('admin.categoryCreate') }}" class="btn btn-dark mb-3">
+  Create
+  <i class="fas fa-plus"></i>
+</a>
 
-<table
-  id="categories"
-  class="table table-striped table-bordered shadow-lg mt-4"
-  style="width: 100%"
->
-  <thead class="bg-primary text-white">
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach ($viewData["categories"] as $category)
-    <tr>
-      <td>{{ $category->getId() }}</td>
-      <td>{{ $category->getName() }}</td>
-      <td>{{ $category->getDescription() }}</td>
+<div class="d-flex flex-wrap justify-content-around">
 
-      <td>
-        <form action="{{ route ('admin.categoryDelete',$category->id)}}">
-          <a
-            href="{{ route ('admin.categoryEdit',$category->id)}}"
-            class="btn btn-info"
-          >
-            Edit
-          </a>
-          @csrf @method('GET')
-          <button type="submit" class="btn btn-danger">Delete</button>
-        </form>
-      </td>
-    </tr>
-    @endforeach
-  </tbody>
-</table>
+@foreach ($viewData["categories"] as $category)
+
+<div class="card" style="width: 40%;">
+  <div class="card-header">
+    <h3 class="card-title">{{ $category->getName() }}</h3>
+    <form class="card-tools" action="{{ route ('admin.categoryDelete',$category->getId())}}">
+      @csrf @method('GET')
+      <a href="{{ route ('admin.categoryEdit',$category->getId() )}}" class="btn btn-dark mb-3">
+        Edit
+        <i class="fas fa-pen"></i>
+      </a>
+      <button class="btn btn-dark mb-3" type="submit">
+        Delete
+        <i class="fas fa-trash"></i>
+      </button>
+    </form>
+  </div>
+  <div class="card-body d-flex justify-content-around">
+    <img src="./../../../image/category/{{ $category->getImage() }}" alt="" width="200" class="mx-5">
+    <p>{{ $category->getDescription() }}</p>
+  </div>
+  <div class="card-footer d-flex justify-content-around">
+    <i class="fas fa-calendar"></i>
+    <p>{{ $category->getCreateAt() }}</p>
+    <p>{{ $category->getUpdateAt() }}</p>
+    <i class="fas fa-calendar"></i>
+  </div>
+</div>
+
+@endforeach
+
+</div>
+
 @endsection

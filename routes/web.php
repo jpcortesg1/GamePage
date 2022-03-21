@@ -26,7 +26,26 @@ Route::middleware('admin')->group(function () {
 
     Route::get('/admin', 'App\Http\Controllers\AdminHomeController@index')->name("admin.index"); 
 
-    Route::resource("/games", 'App\Http\Controllers\GameCrudController');
+    // Admin game page
+    Route::get("/admin/game/", 'App\Http\Controllers\GameController@adminIndex')->name("admin.game");
+
+    // Admin game page specific category
+    Route::get("/admin/games/{id}", 'App\Http\Controllers\GameController@adminShow')->name("admin.gamesCategory");
+
+    // Admin create game with page specific category
+    Route::get("/admin/game/create/{id}", 'App\Http\Controllers\GameController@create')->name("admin.gameCreate");
+
+    // Admin create game with page specific category
+    Route::post("/admin/game/store", 'App\Http\Controllers\GameController@store')->name("admin.gameStore");
+
+    // Admin delete game
+    Route::get("/admin/game/delete/{id}", 'App\Http\Controllers\GameController@destroy')->name("admin.gameDelete");
+
+    // Admin edit game
+    Route::get("/admin/game/edit/{id}", 'App\Http\Controllers\GameController@edit')->name("admin.gameEdit");
+
+    // Admin update game
+    Route::put("/admin/game/update/{id}", 'App\Http\Controllers\GameController@update')->name("admin.gameUpdate");
 
     // Admin category page
     Route::get("/admin/category", 'App\Http\Controllers\CategoryController@indexAdmin')->name("admin.category");

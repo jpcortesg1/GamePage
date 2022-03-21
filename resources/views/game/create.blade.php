@@ -3,13 +3,18 @@
 @section('title', 'CRUD con Laravel 8')
 
 @section('content_header')
-   <h1>Create Game</h1>
+   <h1>This game will be {{ $viewData['category']->getName() }}</h1>
 @stop
 
 @section('content')
     
-<form action="/games" method="POST">
+<form
+action="{{ route('admin.gameStore') }}"
+enctype="multipart/form-data"
+method="POST"
+>
   @csrf
+  @method('POST')
   <div class="mb-3">
     <label for="" class="form-label">Name</label>
     <input id="name" name="name" type="text" class="form-control" tabindex="1">    
@@ -23,8 +28,7 @@
     <input id="description" name="description" type="text" class="form-control" tabindex="3">
   </div>
   <div class="mb-3">
-    <label for="" class="form-label">Id Category</label>
-    <input id="id_category" name="id_category" type="number" class="form-control" tabindex="3">
+    <input id="idCategory" name="idCategory" type="number" class="form-control" tabindex="3" value="{{ $viewData['category']->getId() }}" style="visibility:hidden; height: 0;">
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Release Date</label>
@@ -39,8 +43,11 @@
     <input id="agerating" name="agerating" type="number" class="form-control" tabindex="3">
   </div>
   <div class="mb-3">
-    <label for="" class="form-label">Buy Quantity</label>
-    <input id="buyquantity" name="buyquantity" type="number" class="form-control" tabindex="3">
+    <label for="" class="form-label">Image</label>
+    <input id="image" name="image" type="file" class="" tabindex="3">
+  </div>
+  <div class="mb-3">
+    <input id="buyquantity" name="buyquantity" type="number" class="form-control" tabindex="3" value="0" style="visibility:hidden; height: 0;">
   </div>
   <a href="/games" class="btn btn-secondary" tabindex="5">Cancelar</a>
   <button type="submit" class="btn btn-primary" tabindex="4">Guardar</button>
