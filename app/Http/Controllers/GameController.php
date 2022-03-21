@@ -45,6 +45,18 @@ class GameController extends Controller
   // Method to create new game
   public function store(Request $request)
   {
+
+    $request->validate([
+      'name'=>'required',
+      'developer'=>'required',
+      'description'=>'required',
+      'idCategory'=>'required',
+      'releasedate'=>'required',
+      'price'=>'required',
+      'agerating'=>'required'
+    ]);
+
+
     $game = new Game();
     $filename = time() . $request->image->getClientOriginalName();
 
