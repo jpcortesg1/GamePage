@@ -10,29 +10,21 @@
   @csrf @method('PUT')
   <div class="mb-3">
     <label for="" class="form-label">Name</label>
-    <input
-      id="name"
-      name="name"
-      type="text"
-      class="form-control"
-      value="{{ $viewData['category']->getName() }}"
-    />
+    <div class="col-md-6">
+      <input id="name" name="name" type="text" class="form-control" value="{{ $viewData['category']->getName() }}"/>
+    </div>
   </div>
   <div class="mb-3">
     <label for="" class="form-label">description</label>
-    <input
-      id="description"
-      name="description"
-      type="text"
-      class="form-control"
-      value="{{ $viewData['category']->getDescription() }}"
-    />
+    <div class="col-md-6">
+      <input id="description" name="description" type="text" class="form-control" value="{{ $viewData['category']->getDescription() }}"/>
+    </div>
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Image</label>
-    <input id="image" name="image" type="file" class="form-control" />
+      <input id="image" name="image" type="file"/>
   </div>
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-start pt-2 pb-4 pl-5">
     <img
       src="./../../../image/category/{{ $viewData['category']->getImage() }}"
       alt=""

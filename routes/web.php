@@ -65,4 +65,21 @@ Route::middleware('admin')->group(function () {
     // Delete category
     Route::get("/admin/category/delete/{id}", 'App\Http\Controllers\CategoryController@destroy')->name("admin.categoryDelete");
     
+    // Admin user page
+    Route::get("/admin/user", 'App\Http\Controllers\UserController@indexAdmin')->name("admin.user");
+
+    // Admin create user page
+    Route::get("/admin/user/create", 'App\Http\Controllers\UserController@create')->name("admin.userCreate");
+
+    // Admin update user page
+    Route::get("/admin/user/edit/{id}", 'App\Http\Controllers\UserController@edit')->name("admin.userEdit");
+
+    // Admin create user page
+    Route::post("/admin/user/create", 'App\Http\Controllers\UserController@store')->name("admin.userStore");
+
+    // Admin update user page
+    Route::put("/admin/user/update/{id}", 'App\Http\Controllers\UserController@update')->name("admin.userUpdate");
+
+    // Delete user
+    Route::get("/admin/user/delete/{id}", 'App\Http\Controllers\UserController@destroy')->name("admin.userDelete");
 });

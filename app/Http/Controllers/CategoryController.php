@@ -48,7 +48,7 @@ class CategoryController extends Controller
     // Save client, image and redirect
     $categories->save();
     $request["image"]->move(public_path("image/category/"), $filename);
-    return redirect('/admin/category');
+    return redirect(route('admin.category', $request->idCategory));
   }
 
   // Return the specific category page
@@ -86,15 +86,15 @@ class CategoryController extends Controller
     
     $category->save();
 
-    return redirect('/admin/category');
+    return redirect(route('admin.category', $category->getId()));
   }
 
   // Method for delete a category
   public function destroy($id)
   {
-    $category = Category::find($id);
+    $category = Category::findOrFail($id);
     File::delete(public_path('image/category/'. $category->getImage()));
     $category->delete();
-    return redirect('/admin/category');
+    return redirect(route('admin.category'));
   }
 }
