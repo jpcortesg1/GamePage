@@ -16,18 +16,33 @@
     <div class="col-md-6">
       <input id="name" name="name" type="text" class="form-control" value="{{$viewData['user']->getName()}}">
     </div>
+    @error('name')
+          <span class="invalid-feedback d-block" role="alert">
+            <strong>*{{ $message }}</strong>
+          </span>
+    @enderror  
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Email</label>
     <div class="col-md-6">
       <input id="email" name="email" type="text" class="form-control" value="{{$viewData['user']->getEmail()}}">   
     </div>
+    @error('email')
+          <span class="invalid-feedback d-block" role="alert">
+            <strong>*{{ $message }}</strong>
+          </span>
+    @enderror 
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Rol</label>
     <div class="col-md-6">
       <input id="rol" name="rol" type="text" class="form-control" value="{{$viewData['user']->getRol()}}">   
     </div>
+    @error('rol')
+          <span class="invalid-feedback d-block" role="alert">
+            <strong>*{{ $message }}</strong>
+          </span>
+    @enderror 
   </div>
 
   <a href="{{ route('admin.user') }}" class="btn btn-secondary" tabindex="5">Cancel</a>

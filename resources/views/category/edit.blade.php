@@ -13,12 +13,22 @@
     <div class="col-md-6">
       <input id="name" name="name" type="text" class="form-control" value="{{ $viewData['category']->getName() }}"/>
     </div>
+    @error('name')
+          <span class="invalid-feedback d-block" role="alert">
+            <strong>*{{ $message }}</strong>
+          </span>
+    @enderror 
   </div>
   <div class="mb-3">
     <label for="" class="form-label">description</label>
     <div class="col-md-6">
       <input id="description" name="description" type="text" class="form-control" value="{{ $viewData['category']->getDescription() }}"/>
     </div>
+    @error('description')
+          <span class="invalid-feedback d-block" role="alert">
+            <strong>*{{ $message }}</strong>
+          </span>
+    @enderror 
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Image</label>
