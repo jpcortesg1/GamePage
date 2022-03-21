@@ -26,16 +26,6 @@ class CategoryController extends Controller
     return view('category.indexAdmin')->with('viewData', $viewData);
   }
 
-  // Return the specific category page
-  public function category($id)
-  {
-    $viewData = [];
-    $viewData["title"] =  "Category - Game";
-    $viewData["subtitle"] = "Name of Category";
-
-    return view('category.category')->with("viewData", $viewData);
-  }
-
   // Return the create category page
   public function create()
   {
@@ -61,9 +51,14 @@ class CategoryController extends Controller
     return redirect('/admin/category');
   }
 
+  // Return the specific category page
   public function show($id)
   {
-      //
+    $viewData = [];
+    $viewData["title"] =  "Category - Game";
+    $viewData["subtitle"] = "Name of Category";
+
+    return view('category.show')->with("viewData", $viewData);
   }
 
   // Return the edit category page

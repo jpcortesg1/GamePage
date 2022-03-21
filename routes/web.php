@@ -15,7 +15,7 @@ Route::get('/support', 'App\Http\Controllers\HomeController@support')->name('hom
 Route::get('/categories', 'App\Http\Controllers\CategoryController@index')->name('category.index');
 
 // Category page
-Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@category')->name('category.category');
+Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@show')->name('category.show');
 
 // Game page
 Route::get('/game/{id}', 'App\Http\Controllers\GameController@index')->name('game.index');
