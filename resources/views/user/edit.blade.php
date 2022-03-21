@@ -23,6 +23,12 @@
       <input id="email" name="email" type="text" class="form-control" value="{{$viewData['user']->getEmail()}}">   
     </div>
   </div>
+  <div class="mb-3">
+    <label for="" class="form-label">Rol</label>
+    <div class="col-md-6">
+      <input id="rol" name="rol" type="text" class="form-control" value="{{$viewData['user']->getRol()}}">   
+    </div>
+  </div>
 
   <a href="{{ route('admin.user') }}" class="btn btn-secondary" tabindex="5">Cancel</a>
   <button type="submit" class="btn btn-primary" tabindex="4">Save</button>

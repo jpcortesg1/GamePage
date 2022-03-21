@@ -53,7 +53,8 @@ class GameController extends Controller
       'idCategory'=>'required',
       'releasedate'=>'required',
       'price'=>'required',
-      'agerating'=>'required'
+      'agerating'=>'required',
+      'image'=>'required'
     ]);
 
 
