@@ -36,7 +36,7 @@
   </div>
   <div class="card-body d-flex justify-content-around">
     <img src="./../../../image/games/{{ $game->getId() }}/{{ $game->getImage() }}" alt="" width="200" class="mx-5">
-    <p>{{ $game->getDescription() }}</p>
+    <p style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">{{ $game->getDescription() }}</p>
   </div>
   <div class="card-footer d-flex justify-content-around">
     <i class="fas fa-calendar"></i>
