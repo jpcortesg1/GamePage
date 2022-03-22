@@ -35,125 +35,18 @@
 <div class="bg-dark">
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
+      @foreach ($viewData['categories'] as $category)
+
+        <div class="col-md-3">
+          <div class="card my-4">
+            <img src="./../../image/category/{{ $category->getImage() }}" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
+            <div class="card-body d-flex flex-column justify-content-center">
+              <a href="{{ route('category.show', $category->getId()) }}" class="btn btn-dark">{{ $category->getName() }}</a>
+            </div>
           </div>
         </div>
 
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-
-        <div class="card my-4">
-          <img src="https://cdn1.iconfinder.com/data/icons/computer-techologies-outline-part-1/128/ic_money_no-512.png" class="card-img-top" alt="..." style="height: 15rem; object-fit:cover;">
-          <div class="card-body d-flex flex-column justify-content-center">
-            <a class="btn btn-dark">Free To Play</a>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </div>
 </div>

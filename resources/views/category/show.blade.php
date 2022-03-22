@@ -2,11 +2,11 @@
 @section("title", $viewData["title"])
 @section("content")
 
-<div class="container">
-  <h1 class="text-center">{{ $viewData["subtitle"] }}</h1>
+<div class="container pt-5">
+  <h1 class="text-center">{{ $viewData["category"]->getName() }}</h1>
 
   <p>
-    Description of category Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quibusdam architecto sit facilis repudiandae magni nulla fuga quam minus dicta!
+    {{ $viewData['category']->getDescription() }}
   </p>
 
   <h3 class="text-center my-5">News</h3>
@@ -18,15 +18,15 @@
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="https://cdn.pixabay.com/photo/2021/09/07/07/11/game-console-6603120_960_720.jpg" style="height: 50vh; object-fit:cover;" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://cdn.pixabay.com/photo/2021/09/07/07/11/game-console-6603120_960_720.jpg" style="height: 50vh; object-fit:cover;" class="d-block w-100" alt="...">
-      </div>
-      <div class="carousel-item">
-        <img src="https://cdn.pixabay.com/photo/2021/09/07/07/11/game-console-6603120_960_720.jpg" style="height: 50vh; object-fit:cover;" class="d-block w-100" alt="...">
-      </div>
+
+      @for ($i = 0; $i < min(count($viewData['games']), 3) ; $i++)
+      <div class="carousel-item {{ $i == 0 ? 'active' : '' }}">
+        <a href="{{ route('game.index', $viewData['games'][$i]->getId()) }}">
+          <img src="./../../image/games/{{ $viewData['games'][$i]->getId() }}/{{ $viewData['games'][$i]->getImage() }}" style="height: 50vh; object-fit:cover;" class="d-block w-100" alt="...">
+        </a>
+        </div>
+      @endfor
+
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -47,27 +47,26 @@
       <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <div class="d-flex" style="flex-wrap:wrap;">
-          <img style="width: 33%; height: 50vh; object-fit:cover;" src="https://images.pexels.com/photos/1174746/pexels-photo-1174746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block" alt="...">
-          <img style="width: 33%; height: 50vh; object-fit:cover;" src="https://images.pexels.com/photos/1174746/pexels-photo-1174746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block" alt="...">
-          <img style="width: 33%; height: 50vh; object-fit:cover;" src="https://images.pexels.com/photos/1174746/pexels-photo-1174746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block" alt="...">
-        </div>
+
+      @for ($i = 0; $i < min(count($viewData['games']), 6) ; $i+=2)
+      <div class="carousel-item {{ $i == 0 ? 'active' : '' }}">
+        @if($i+1 < count($viewData['games']))
+        <div class="d-flex">
+            <a href="{{ route('game.index', $viewData['games'][$i]->getId()) }}">
+              <img src="./../../image/games/{{ $viewData['games'][$i]->getId() }}/{{ $viewData['games'][$i]->getImage() }}" style="height: 50vh; object-fit:cover;" class="d-block w-100" alt="...">
+            </a>
+            <a href="{{ route('game.index', $viewData['games'][$i+1]->getId()) }}">
+              <img src="./../../image/games/{{ $viewData['games'][$i+1]->getId() }}/{{ $viewData['games'][$i+1]->getImage() }}" style="height: 50vh; object-fit:cover;" class="d-block w-100" alt="...">
+            </a>
+          </div>
+          @else
+            <a href="{{ route('game.index', $viewData['games'][$i]->getId()) }}">
+              <img src="./../../image/games/{{ $viewData['games'][$i]->getId() }}/{{ $viewData['games'][$i]->getImage() }}" style="width: 100%;height: 50vh; object-fit:cover;" class="d-block w-100" alt="...">
+            </a>
+          @endif
       </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <div class="d-flex" style="flex-wrap:wrap;">
-          <img style="width: 33%; height: 50vh; object-fit:cover;" src="https://images.pexels.com/photos/1174746/pexels-photo-1174746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block" alt="...">
-          <img style="width: 33%; height: 50vh; object-fit:cover;" src="https://images.pexels.com/photos/1174746/pexels-photo-1174746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block" alt="...">
-          <img style="width: 33%; height: 50vh; object-fit:cover;" src="https://images.pexels.com/photos/1174746/pexels-photo-1174746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block" alt="...">
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="d-flex" style="flex-wrap:wrap;">
-          <img style="width: 33%; height: 50vh; object-fit:cover;" src="https://images.pexels.com/photos/1174746/pexels-photo-1174746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block" alt="...">
-          <img style="width: 33%; height: 50vh; object-fit:cover;" src="https://images.pexels.com/photos/1174746/pexels-photo-1174746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block" alt="...">
-          <img style="width: 33%; height: 50vh; object-fit:cover;" src="https://images.pexels.com/photos/1174746/pexels-photo-1174746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="d-block" alt="...">
-        </div>
-      </div>
+      @endfor
+
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -80,298 +79,28 @@
   </div>
 
   <div class="row">
-    <h2 class="text-center my-5">{{ $viewData["subtitle"] }}</h2>
+    <h2 class="text-center my-5">{{ $viewData["category"]->getName() }}</h2>
 
-    <div class="row">
-      <div class="list-group my-2 col-md-6">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
+    <div class="row d-flex justify-content-around">
+      @foreach ($viewData['games'] as $game)
+        <a href="{{ route('game.index', $game->getId()) }}" class="list-group-item mb-2 list-group-item-action bg-dark text-light" aria-current="true" style="width: 45%;">
           <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
+            <img src="./../../image/games/{{ $game->getId() }}/{{ $game->getImage() }}" class="" alt="..." style="width: 30%;">
+            <div class="d-flex flex-column justify-content-center ms-2">
+              <h5 class="mb-1">{{ $game->getName() }}</h5>
+              <p class="mb-1" style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ $game->getDescription() }}</p>
             </div>
-            <small>3 days ago</small>
+            <div class="actions">
+              <button class="btn btn-outline-light">
+                <i class="fa-solid fa-cart-arrow-down"></i>
+              </button>
+              <button class="btn btn-outline-light">
+                <i class="fa-solid fa-money-bill"></i>
+              </button>
+            </div>
           </div>
         </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-      </div>
-      <div class="list-group my-2 col-md-6">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="list-group my-2 col-md-6">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-      </div>
-      <div class="list-group my-2 col-md-6">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="list-group my-2 col-md-6">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-      </div>
-      <div class="list-group my-2 col-md-6">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="list-group my-2 col-md-6">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-      </div>
-      <div class="list-group my-2 col-md-6">
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action bg-dark text-light" aria-current="true">
-          <div class="d-flex w-100 justify-content-between">
-            <img src="https://images.pexels.com/photos/194511/pexels-photo-194511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="" alt="..." style="width: 20%;">
-            <div class="d-flex flex-column justify-content-center">
-              <h5 class="mb-1">List group item heading</h5>
-              <p class="mb-1">Some placeholder content in a paragraph.</p>
-              <small>And some small print.</small>
-            </div>
-            <small>3 days ago</small>
-          </div>
-        </a>
-      </div>
+      @endforeach
     </div>
   </div>
 

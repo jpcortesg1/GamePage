@@ -98,7 +98,6 @@ class GameController extends Controller
   // Add images for game
   public function addImages(Request $request, $id)
   {
-    // files
     if($request->hasfile('files')) {
       foreach($request->file('files') as $image)
       {
@@ -129,7 +128,6 @@ class GameController extends Controller
       'releasedate'=>'required',
       'price'=>'required',
       'agerating'=>'required',
-      'image'=>'required'
     ]);
 
     $game = Game::find($id);

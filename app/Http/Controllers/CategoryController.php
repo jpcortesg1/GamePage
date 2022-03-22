@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Game;
 use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
@@ -14,6 +15,7 @@ class CategoryController extends Controller
     $viewData = [];
     $viewData["title"] = "Categories - Game";
     $viewData["subTitle"] = "Categories";
+    $viewData["categories"] = Category::all();
     return view("category.index")->with("viewData", $viewData);
   }
 
@@ -64,6 +66,9 @@ class CategoryController extends Controller
     $viewData = [];
     $viewData["title"] =  "Category - Game";
     $viewData["subtitle"] = "Name of Category";
+    $viewData["category"] = Category::find($id);
+    $viewData['games'] = Game::where('id_category', $id)->orderBy('created_at', 'desc')->get();
+    $viewData['highlights'] = Game::where('id_category', $id)->orderBy('buyquantity', 'desc')->get();
 
     return view('category.show')->with("viewData", $viewData);
   }
@@ -83,7 +88,6 @@ class CategoryController extends Controller
     $request->validate([
       'name'=>'required',
       'description'=>'required',
-      'image'=>'required'
     ]);
     
     $category = Category::find($id);
