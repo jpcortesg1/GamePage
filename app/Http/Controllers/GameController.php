@@ -76,11 +76,37 @@ class GameController extends Controller
     return redirect(route('admin.gamesCategory', $request->idCategory));
   }
 
+  // View specific game page in admin profile
   public function show($id)
   {
-      //
+    $viewData = [];
+    $viewData['game'] = Game::findOrFail($id);
+    $viewData['category'] = Category::find($viewData['game']->getIdCategory());
+    $viewData['images'] = File::files(public_path("image/games/" . $viewData['game']->getId()));
+    return view('game.showGame')->with('viewData', $viewData);
   }
 
+  // Delete images of a game
+  public function deleteImage($param)
+  {
+    $params = explode(" $- ", $param);
+    File::delete(public_path('image/games/'. $params[0] . '/' . $params[1] ));
+    return back();
+  }
+
+  // Add images for game
+  public function addImages(Request $request, $id)
+  {
+    // files
+    if($request->hasfile('files')) {
+      foreach($request->file('files') as $image)
+      {
+        $filename = time() . $image->getClientOriginalName();
+        $image->move(public_path("image/games/" . $id), $filename);
+      }
+    }
+    return back();
+  }
     
   // Return the edit game page
   public function edit($id)
