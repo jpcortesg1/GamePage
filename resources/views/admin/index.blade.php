@@ -4,6 +4,7 @@
 @stop @section('content')
 
 <div class="small-box bg-gradient-primary">
+
   <div class="inner">
     <h3>10</h3>
     <p>Game Categories</p>
@@ -11,19 +12,20 @@
   <div class="icon">
     <i class="fas fa-folder-open"></i>
   </div>
-  <a href="users" class="small-box-footer">
+  <a href="{{ route('admin.category')}}" class="small-box-footer">
     More info <i class="fas fa-arrow-circle-right"></i>
   </a>
 </div>
 
 <div class="small-box bg-danger">
   <div class="inner">
+  <h3>10</h3>
     <p>Games</p>
   </div>
   <div class="icon">
     <i class="fas fa-gamepad"></i>
   </div>
-  <a href="#" class="small-box-footer">
+  <a href="{{ route('admin.game')}}" class="small-box-footer">
     More info <i class="fas fa-arrow-circle-right"></i>
   </a>
 </div>
@@ -36,7 +38,7 @@
   <div class="icon">
     <i class="fas fa-shopping-cart"></i>
   </div>
-  <a href="#" class="small-box-footer">
+  <a href="{{ route('admin.game')}}" class="small-box-footer">
     More info <i class="fas fa-arrow-circle-right"></i>
   </a>
 </div>
@@ -49,7 +51,7 @@
   <div class="icon">
     <i class="fas fa-user-plus"></i>
   </div>
-  <a href="admin/user" class="small-box-footer">
+  <a href="{{ route('admin.user')}}" class="small-box-footer">
     More info <i class="fas fa-arrow-circle-right"></i>
   </a>
 </div>
@@ -62,7 +64,7 @@
   <div class="icon">
     <i class="fas fa-user-secret"></i>
   </div>
-  <a href="#" class="small-box-footer">
+  <a href="{{ route('admin.user')}}" class="small-box-footer">
     More info <i class="fas fa-arrow-circle-right"></i>
   </a>
 </div>
