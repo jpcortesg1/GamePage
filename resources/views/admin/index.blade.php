@@ -6,7 +6,7 @@
 <div class="small-box bg-gradient-primary">
 
   <div class="inner">
-    <h3>10</h3>
+    <h3>{{ $viewData["totalCategory"] }}</h3>
     <p>Game Categories</p>
   </div>
   <div class="icon">
@@ -19,7 +19,7 @@
 
 <div class="small-box bg-danger">
   <div class="inner">
-  <h3>10</h3>
+  <h3>{{ $viewData["totalGames"] }}</h3>
     <p>Games</p>
   </div>
   <div class="icon">
@@ -45,7 +45,7 @@
 
 <div class="small-box bg-gradient-success">
   <div class="inner">
-    <h3>44</h3>
+  <h3>{{ $viewData["totalUsers"] }}</h3>
     <p>Users</p>
   </div>
   <div class="icon">
@@ -58,7 +58,7 @@
 
 <div class="small-box bg-warning">
   <div class="inner">
-    <h3>2</h3>
+  <h3>{{ $viewData["totalAdmins"] }}</h3>
     <p>Admins</p>
   </div>
   <div class="icon">

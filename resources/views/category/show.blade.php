@@ -160,43 +160,43 @@
 
     <div class="row d-flex justify-content-around">
       @foreach ($viewData['games'] as $game)
-      <a
-        href="{{ route('game.index', $game->getId()) }}"
-        class="list-group-item mb-2 list-group-item-action bg-dark text-light"
-        aria-current="true"
-        style="width: 45%"
-      >
-        <div class="d-flex w-100 justify-content-between">
-          <img
-            src="./../../image/games/{{ $game->getId() }}/{{ $game->getImage() }}"
-            class=""
-            alt="..."
-            style="width: 30%; max-height: 8rem;"
-          />
-          <div class="d-flex flex-column justify-content-center ms-2">
-            <h5 class="mb-1">{{ $game->getName() }}</h5>
-            <p
-              class="mb-1"
-              style="
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-              "
-            >
-              {{ $game->getDescription() }}
-            </p>
+      <div class="col-md-5 bg-dark text-light d-flex mb-2">
+        <a
+          href="{{ route('game.index', $game->getId()) }}"
+          class="list-group-item mb-2 list-group-item-action bg-dark text-light"
+        >
+          <div class="d-flex w-100 justify-content-between">
+            <img
+              src="./../../image/games/{{ $game->getId() }}/{{ $game->getImage() }}"
+              class=""
+              alt="..."
+              style="width: 30%; max-height: 8rem"
+            />
+            <div class="d-flex flex-column justify-content-center ms-2">
+              <h5 class="mb-1">{{ $game->getName() }}</h5>
+              <p
+                class="mb-1"
+                style="
+                  display: -webkit-box;
+                  -webkit-line-clamp: 2;
+                  -webkit-box-orient: vertical;
+                  overflow: hidden;
+                "
+              >
+                {{ $game->getDescription() }}
+              </p>
+            </div>
           </div>
-          <div class="actions">
-            <button class="btn btn-outline-light">
-              <i class="fa-solid fa-cart-arrow-down"></i>
-            </button>
-            <button class="btn btn-outline-light">
-              <i class="fa-solid fa-money-bill"></i>
-            </button>
-          </div>
+        </a>
+        <div class="actions d-flex flex-column justify-content-around align-items-center">
+          <a class="btn btn-outline-light" href="{{ route('cart.add', $game->getId()) }}">
+            <i class="fa-solid fa-cart-arrow-down"></i>
+          </a>
+          <a href="{{ route('game.buy', $game->getId()) }}" class="btn btn-outline-light">
+            <i class="fa-solid fa-money-bill"></i>
+          </a>
         </div>
-      </a>
+      </div>
       @endforeach
     </div>
   </div>

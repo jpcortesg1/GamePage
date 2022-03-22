@@ -119,6 +119,15 @@ class GameController extends Controller
     $viewData['categories'] = Category::all();
     return view('game.edit')->with('viewData',$viewData);
   }
+
+  // Buy game
+  public function buy($id)
+  {
+    $game = Game::find($id);
+    $game->setBuyquantity($game->getBuyquantity() + 1);
+    $game->save();
+    return back();
+  }
     
   // Method for update a game
   public function update(Request $request, $id)

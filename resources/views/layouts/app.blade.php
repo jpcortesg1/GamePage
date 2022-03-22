@@ -49,6 +49,11 @@
         @else
         <div class="d-flex">
           <li class="nav-item d-flex">
+              <a class="btn btn-outline-light mx-3" href="{{ route('cart.index') }}">
+                <i class="fa-solid fa-cart-shopping"></i>
+              </a>
+          </li>
+          <li class="nav-item d-flex">
               <a class="btn btn-outline-light mx-3" href="{{ route('home.about') }}">Account</a>
           </li>
           <form id="logout" action="{{ route('logout') }}" method="POST" class="d-flex">

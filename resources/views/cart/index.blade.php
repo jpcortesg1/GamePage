@@ -3,36 +3,34 @@
 @section("subtitle", $viewData["subtitle"])
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <h1>Available games</h1>
-            <ul>
-                @foreach($viewData["games"] as $key => $game)
-                    <li>
-                    Id: {{ $key }} -
-                    Name: {{ $game["name"] }} -
-                    Price: {{ $game["price"] }} -
-                    <a href="{{ route('cart.add', ['id'=> $key]) }}">Add to cart</a>
-                    </li>
-                @endforeach
-            </ul>
+<div class="bg-dark text-light" style="min-height: 100vh;">
+  <div class="container pt-5">
+      <div class="row">
+        <h1>Products in cart</h1>
+
+        <!-- Buttons -->
+        <div class="mb-3" role="group" aria-label="Basic example">
+          <a href="{{ route('cart.checkOut') }}" class="btn btn-outline-light">Checkout</a>
+          <a href="{{ route('cart.removeAll') }}" class="btn btn-outline-light">Delete all</a>
         </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <h1>Products in cart</h1>
-            <ul>
-                @foreach($viewData["gamesInCart"] as $key => $game)
-                    <li>
-                    Id: {{ $key }} -
-                    Name: {{ $game["name"] }} -
-                    Price: {{ $game["price"] }}
-                    </li>
-                @endforeach
-            </ul>
-            <a href="{{ route('cart.removeAll') }}">Remove all games from cart</a>
+
+        <!-- All items -->
+        <div class="d-flex flex-wrap justify-content-around">
+          
+          @foreach($viewData["games"] as $game)
+          
+            <div class="card m-1 bg-dark border border-light" style="width: 30%;">
+              <div class="card-body">
+                <h5 class="card-title">{{ $game->getName() }}</h5>
+                <img src="./../../image/games/{{ $game->getId() }}/{{ $game->getImage() }}"alt="" style="width: 100%; max-height: 10rem;">
+                <a href="{{ route('cart.remove', $game->getId()) }}" class="btn btn-outline-light mt-3">Remove</a>
+              </div>
+            </div>
+
+          @endforeach
+
         </div>
-    </div>
+      </div>
+  </div>
 </div>
 @endsection
