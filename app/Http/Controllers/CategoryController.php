@@ -80,6 +80,12 @@ class CategoryController extends Controller
   // Method for update a category
   public function update(Request $request, $id)
   {
+    $request->validate([
+      'name'=>'required',
+      'description'=>'required',
+      'image'=>'required'
+    ]);
+    
     $category = Category::find($id);
     if(isset($request->image)){
       File::delete(public_path('image/category/'. $category->getImage()));
