@@ -13,7 +13,7 @@
         <label for="floatingTextarea" style="color: #000;">Comments</label>
         <button class="btn btn-outline-light my-3">Send</button>
       </form>
-      <p class="fs-4">For us it is very important to know your opinions, we will contact you as soon as possible</p>
+      <p class="fs-4">For us it is very important to know your opinions, we will contact you as soon as possible!</p>
     </div>
 
     <div class="col-md-5">

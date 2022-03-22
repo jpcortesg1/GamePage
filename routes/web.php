@@ -20,6 +20,15 @@ Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@show')->na
 // Game page
 Route::get('/game/{id}', 'App\Http\Controllers\GameController@index')->name('game.index');
 
+//cart index
+Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+
+//add cart
+Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+
+//car remove
+Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+
 Auth::routes();
 
 Route::middleware('admin')->group(function () {

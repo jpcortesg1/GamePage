@@ -7,7 +7,7 @@
     <div class="col-md-5">
       <h1>Category</h1>
       <h2>How?</h2>
-      <p class="fs-3">In game store the games are separated by categories, so it is easier to find what you are looking for or there is something that interests you</p>
+      <p class="fs-3">In game store the games are separated by categories, so it is easier to find what you are looking for or find other games related to the ones you like.</p>
       
       <div class="row">
         <div class="col-md-4 d-flex justify-content-center align-items-center">
