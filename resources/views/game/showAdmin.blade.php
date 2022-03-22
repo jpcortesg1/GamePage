@@ -16,7 +16,9 @@
   <div class="card-header">
     <h3 class="card-title">{{ $game->getName() }}</h3>
     <form 
-    class="card-tools" action="{{ route ('admin.gameDelete',$game->getId()) }}">
+      class="card-tools" 
+      action="{{ route('admin.gameDelete', $game->getId()) }}"
+    >
       @csrf @method('GET')
       <a href="{{ route('admin.gameEdit', $game->getId()) }}" class="btn btn-dark mb-3">
         Edit
@@ -26,6 +28,10 @@
         Delete
         <i class="fas fa-trash"></i>
       </button>
+      <a href="{{ route('admin.gameShow', $game->getId()) }}" class="btn btn-dark mb-3">
+        More
+        <i class="fas fa-angle-double-right"></i>
+      </a>
     </form>
   </div>
   <div class="card-body d-flex justify-content-around">

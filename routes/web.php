@@ -47,6 +47,15 @@ Route::middleware('admin')->group(function () {
     // Admin update game
     Route::put("/admin/game/update/{id}", 'App\Http\Controllers\GameController@update')->name("admin.gameUpdate");
 
+    // Admin page of add imgaes for game
+    Route::get("/admin/game/show/{id}", 'App\Http\Controllers\GameController@show')->name("admin.gameShow");
+
+    // Delete image for game
+    Route::get("/admin/game/delete/game/{id}", 'App\Http\Controllers\GameController@deleteImage')->name("admin.gameDeleteImage");
+
+    // Add images for game
+    Route::post("/admin/game/add/images/{id}", 'App\Http\Controllers\GameController@addImages')->name("admin.gameAddImages");
+
     // Admin category page
     Route::get("/admin/category", 'App\Http\Controllers\CategoryController@indexAdmin')->name("admin.category");
 
