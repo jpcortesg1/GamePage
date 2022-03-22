@@ -27,8 +27,8 @@
     </form>
   </div>
   <div class="card-body d-flex justify-content-around">
-    <img src="./../../../image/category/{{ $category->getImage() }}" alt="" width="200" class="mx-5">
-    <p>{{ $category->getDescription() }}</p>
+    <img src="./../../../image/category/{{ $category->getImage() }}" alt="" width="200" class="mx-5" style="max-height: 10rem;">
+    <p style="display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; overflow: hidden;">{{ $category->getDescription() }}</p>
   </div>
   <div class="card-footer d-flex justify-content-around">
     <i class="fas fa-calendar"></i>

@@ -15,6 +15,9 @@ class GameController extends Controller
     $viewData = [];
     $viewData["title"] = "Name Game - Game";
     $viewData["subTitle"] = "Name of Game";
+    $viewData["game"] = Game::find($id);
+    $viewData['category'] = Category::find($viewData['game']->getIdCategory());
+    $viewData['images'] = File::files(public_path("image/games/" . $viewData['game']->getId()));
     return view("game.index")->with("viewData", $viewData);
   }
 
