@@ -49,32 +49,23 @@ class GameController extends Controller
   public function store(Request $request)
   {
 
-    $request->validate([
-      'name'=>'required',
-      'developer'=>'required',
-      'description'=>'required',
-      'idCategory'=>'required',
-      'releasedate'=>'required',
-      'price'=>'required',
-      'agerating'=>'required',
-      'image'=>'required'
-    ]);
+    Game::validate($request);
+    $filename = time() . $request->image-> getClientOriginalName();
 
-
-    $game = new Game();
-    $filename = time() . $request->image->getClientOriginalName();
-
-    $game->setName($request->name);
-    $game->setDeveloper($request->developer);
-    $game->setDescription($request->description);
-    $game->setIdCategory($request->idCategory);
-    $game->setReleasedate($request->releasedate);
-    $game->setPrice($request->price);
-    $game->setAgerating($request->agerating);
-    $game->setBuyquantity($request->buyquantity);
+    $data = ["name" => $request->name,
+    "developer" => $request->developer,
+    "description" => $request->description,
+    "id_category" => $request->idCategory,
+    "releasedate" => $request->releasedate,
+    "price" => $request->price,
+    "agerating" => $request->agerating,
+    "buyquantity" => $request->buyquantity];
+    
+    $game = Game::create($data);
     $game->setImage($filename);
-
     $game->save();
+
+    
     $request["image"]->move(public_path("image/games/" . $game->getId()), $filename);
 
     return redirect(route('admin.gamesCategory', $request->idCategory));

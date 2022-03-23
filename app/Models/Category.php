@@ -15,6 +15,15 @@ class Category extends Model
 
   protected $fillable = ['id', 'name', 'description', 'image'];
 
+  public static function validate($request)
+  {
+    $request->validate([
+      'name' => 'required|max:255',
+      'description' => 'required|max:6000',
+      'image' => 'required|image'
+    ]);
+  }
+
   public function getId()
   {
     return $this->attributes['id'];

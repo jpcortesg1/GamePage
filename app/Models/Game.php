@@ -22,6 +22,20 @@ class game extends Model
   protected $primaryKey = 'id';
   protected $fillable = ['id', 'name', 'developer', 'description', 'id_category', 'releasedate', 'price', 'agerating', 'buyquantity'];
 
+  public static function validate($request)
+  {
+    $request->validate([
+      'name'=>'required|max:255',
+      'developer'=>'required|max:255',
+      'description'=>'required:max:6000',
+      'idCategory'=>'required:number',
+      'releasedate'=>'required|max:255',
+      'price'=>'required|max:2000',
+      'agerating'=>'required',
+      'image' => 'required|image'
+    ]);
+  }
+
   public function getId()
   {
     return $this->attributes['id'];

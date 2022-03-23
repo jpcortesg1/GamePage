@@ -57,8 +57,7 @@
               <a class="btn btn-outline-light mx-3" href="{{ route('home.about') }}">Account</a>
           </li>
           <form id="logout" action="{{ route('logout') }}" method="POST" class="d-flex">
-            <a role="button" class="btn btn-outline-light mx-3 ml-15"
-            onclick="document.getElementById('logout').submit();">Logout</a>
+            <button class="btn btn-outline-light mx-3 ml-15" type="submit">Logout</button>
           </form>
         </div>
         @csrf

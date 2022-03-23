@@ -32,10 +32,14 @@ Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("c
 //cart remove all
 Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
 
-//cart remove specific item
+// Cart remove specific item
 Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
 
+// Buy all games in cart
 Route::get('/cart/checkOut/', 'App\Http\Controllers\CartController@checkOut')->name("cart.checkOut");
+
+// Create new comment
+Route::post('/comment/create/{id}', 'App\Http\Controllers\CommentController@store')->name("comment.store");
 
 Auth::routes();
 

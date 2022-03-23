@@ -143,8 +143,6 @@
     </div>
   </div>
 </div>
-  
-<!-- <img src="{{ $image }}" alt="" srcset=""> -->
 
 @endforeach
   

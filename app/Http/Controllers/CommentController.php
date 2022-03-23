@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -32,9 +34,21 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+      $userId = Auth::id();
+      $comment = new Comment();
+      $comment->setComment($request->comment);
+      $comment->setIdGame($id);
+      $comment->setIdUser($userId);
+      if($request->idComment){
+        $comment->setIdComment($idComment);
+      }else{
+        $comment->setIdComment(null);
+      }
+      $comment->save();
+
+      return back();
     }
 
     /**

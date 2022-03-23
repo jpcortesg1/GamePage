@@ -172,6 +172,19 @@
       </p>
     </div>
 
+    <form class="form" action="{{ route('comment.store', $viewData['game']->getId()) }}" method="POST">
+      @csrf
+      @method('POST')
+      <div class="form-floating">
+        <textarea class="form-control bg-dark text-light" placeholder="Leave a comment here" id="floatingTextarea" name="comment"></textarea>
+        <label for="floatingTextarea">Create new comment</label>
+        @error('comment')
+          <div class="alert alert-danger mt-2">The field must be full</div>
+        @enderror
+        <button type="submit" class="btn btn-outline-light mt-2">Create</button>
+      </div>
+    </form>
+
     <div class="comment ps-2 my-5" style="border-left: 2px solid #fff">
       <div class="d-flex align-items-center">
         <div class="photo">

@@ -20,8 +20,8 @@ return new class extends Migration
             $table->foreign('id_game')->references('id')->on('games');
             $table->unsignedBigInteger('id_user');
             $table->foreign('id_user')->references('id')->on('users');
-            $table->unsignedBigInteger('id_comment');
-            $table->foreign('id_comment')->references('id')->on('comments');
+            $table->unsignedBigInteger('id_comment')->nullable()->unsigned();
+            $table->foreign('id_comment')->references('id')->on('comments')->nullable()->unsigned();
             $table->timestamps();
         });
     }

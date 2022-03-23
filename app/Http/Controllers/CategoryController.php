@@ -38,25 +38,16 @@ class CategoryController extends Controller
   // Method for create new category
   public function store(Request $request)
   {
-
-    $request->validate([
-      'name'=>'required',
-      'description'=>'required',
-      'image'=>'required'
-    ]);
+    Category::validate($request);
 
     // Create unique name of image
     $filename = time() . $request->image->getClientOriginalName();
+    $request['image']->move(public_path("image/category/"), $filename);
+    $data = ["name" => $request->name, "description" => $request->description, "image" => $filename];
 
     // Create the category
-    $categories = new Category();
-    $categories->setName($request->name);
-    $categories->setDescription($request->description);
-    $categories->setImage($filename);
+    Category::create($data);
 
-    // Save client, image and redirect
-    $categories->save();
-    $request["image"]->move(public_path("image/category/"), $filename);
     return redirect(route('admin.category', $request->idCategory));
   }
 
