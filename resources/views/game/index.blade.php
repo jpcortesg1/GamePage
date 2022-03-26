@@ -185,62 +185,9 @@
       </div>
     </form>
 
-    @foreach($viewData['comments'] as $commet)
+    @foreach($viewData['comments'] as $comment)
 
-    <div class="comment ps-2 my-5" style="border-left: 2px solid #fff">
-      <div class="d-flex align-items-center">
-        <div class="photo">
-          <img
-            class="rounded-circle"
-            src="https://images.pexels.com/photos/11438375/pexels-photo-11438375.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-            alt=""
-            style="width: 3rem; height: 3rem; object-fit: cover"
-          />
-        </div>
-        <div class="name mx-3 fs-5">Jane</div>
-        <span class="date"> <i class="fa-solid fa-calendar"></i>{{ $commet->getCreateAt() }}</span>
-      </div>
-
-      <div class="center">
-        {{ $commet->getComment() }}
-      </div>
-
-      <div class="bottom ms-3">
-        <i class="fa-solid fa-comment"></i>
-        {{ count($commet->comments) }}
-        <a href="">See all comments</a>
-      </div>
-
-      <div class="responses">
-
-        @foreach ($commet->comments as $subcomment)
-          <div class="comment ps-2 my-5" style="border-left: 2px solid #fff">
-            <div class="d-flex align-items-center">
-              <div class="photo">
-                <img
-                  class="rounded-circle"
-                  src="https://images.pexels.com/photos/11438375/pexels-photo-11438375.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
-                  alt=""
-                  style="width: 3rem; height: 3rem; object-fit: cover"
-                />
-              </div>
-              <div class="name mx-3 fs-5">Jane</div>
-              <span class="date"> <i class="fa-solid fa-calendar"></i>{{ $subcomment->getCreateAt() }}</span>
-            </div>
-
-            <div class="center">
-              {{ $subcomment->getComment() }}
-            </div>
-
-            <div class="bottom ms-3">
-              <i class="fa-solid fa-comment"></i>
-            </div>
-
-          </div>
-        @endforeach
-
-      </div>
-    </div>
+    <x-comment-item :comment="$comment" />
 
     @endforeach
     

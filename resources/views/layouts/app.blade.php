@@ -1,69 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/d0753c10f6.js" crossorigin="anonymous"></script>
   <title>@yield("title", "CRUD")</title>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="{{ route('home.index') }}"><img src="./img/logo1.png" style="height: 3rem;" alt=""></a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-      <div class="container-fluid">
+      <a class="navbar-brand" href="{{ route('home.index') }}"><img src="./img/logo1.png" style="height: 3rem;"
+          alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="container-fluid">
           <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{{ route('home.index') }}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('category.index') }}">Categories</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('home.about') }}">About</a>
-            </li>
-            <li class="nav-item">
-              <a href="{{ route('home.support') }}" class="nav-link">Support</a>
-            </li>
-          </ul>
-        </div>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{{ route('home.index') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('category.index') }}">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('home.about') }}">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('home.support') }}" class="nav-link">Support</a>
+          </li>
+        </ul>
       </div>
-      <div class="vr bg-white mx-2 d-none d-lg-block"></div>
-        @guest
-          <a class="btn btn-outline-light mx-3" href="{{ route('login') }}">Login</a>
-          <a class="btn btn-outline-light mx-3" href="{{ route('register') }}">Register</a>
-        @else
-        <div class="d-flex">
-          <li class="nav-item d-flex">
-              <a class="btn btn-outline-light mx-3" href="{{ route('cart.index') }}">
-                <i class="fa-solid fa-cart-shopping"></i>
-              </a>
-          </li>
-          <li class="nav-item d-flex">
-              <a class="btn btn-outline-light mx-3" href="{{ route('home.about') }}">Account</a>
-          </li>
-          <form id="logout" action="{{ route('logout')  }}" method="POST" class="d-flex">
-            @csrf
-            @method('POST')
-            <button class="btn btn-outline-light mx-3 ml-15" type="submit">Logout</button>
-          </form>
-        </div>
-        @csrf
-        @endguest
+    </div>
+    <div class="vr bg-white mx-2 d-none d-lg-block"></div>
+    @guest
+      <a class="btn btn-outline-light mx-3" href="{{ route('login') }}">Login</a>
+      <a class="btn btn-outline-light mx-3" href="{{ route('register') }}">Register</a>
+    @else
+      <div class="d-flex">
+        <li class="nav-item d-flex">
+          <a class="btn btn-outline-light mx-3" href="{{ route('cart.index') }}">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </a>
+        </li>
+        <li class="nav-item d-flex">
+          <a class="btn btn-outline-light mx-3" href="{{ route('home.about') }}">Account</a>
+        </li>
+        <form id="logout" action="{{ route('logout') }}" method="POST" class="d-flex">
+          @csrf
+          @method('POST')
+          <button class="btn btn-outline-light mx-3 ml-15" type="submit">Logout</button>
+        </form>
+      </div>
+      @csrf
+    @endguest
     </div>
   </nav>
 
@@ -78,34 +75,22 @@
       <!-- Section: Social media -->
       <section class="mb-4">
         <!-- Facebook -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-facebook-f"></i
-        ></a>
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
 
         <!-- Twitter -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-twitter"></i
-        ></a>
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
 
         <!-- Google -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-google"></i
-        ></a>
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
 
         <!-- Instagram -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-instagram"></i
-        ></a>
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
 
         <!-- Linkedin -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-linkedin-in"></i
-        ></a>
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
 
         <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-          ><i class="fab fa-github"></i
-        ></a>
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
       </section>
       <!-- Section: Social media -->
 
@@ -206,10 +191,9 @@
                 <a href="#!" class="text-white">Link 4</a>
               </li>
             </ul>
+            <!--Grid column-->
           </div>
-          <!--Grid column-->
-        </div>
-        <!--Grid row-->
+          <!--Grid row-->
       </section>
       <!-- Section: Links -->
     </div>
@@ -227,6 +211,9 @@
   </footer>
   <!-- Footer -->
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
 </body>
+
 </html>
