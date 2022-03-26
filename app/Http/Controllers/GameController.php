@@ -5,10 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Category;
+use App\Models\Comment;
 use Illuminate\Support\Facades\File;
 
 class GameController extends Controller
 {
+  public function subComment($comment, $viewData)
+  {
+    if(count($comment->comments) <= 0){
+      return $viewData = $comment;
+    }
+    foreach ($comment->comments as $comment){
+      $viewData[$comment->getId()] = [];
+      return $this->subComment($comment, $viewData[$comment->getId()]);
+    }
+  }
+
   // Retunr the client game page  
   public function index($id)
   {
@@ -17,6 +29,26 @@ class GameController extends Controller
     $viewData["subTitle"] = "Name of Game";
     $viewData["game"] = Game::find($id);
     $viewData['category'] = Category::find($viewData['game']->getIdCategory());
+    $viewData['comments'] = Comment::where(
+      [['id_game', '=',   $viewData['game']->getId()],
+      ['id_comment', '=', null],
+    ])->get();
+
+    foreach ($viewData['comments'] as $comment){
+      $viewData[$comment->getId()] = [];
+      $this->subComment($comment, $viewData[$comment->getId()]);
+    }
+
+    // dd($viewData['comments']);
+
+    // dd($viewData['comments']);
+    // dd($viewData['comments'][0]->comments[0]);
+    // dd($viewData['comments'][0]->comments[0]->comments[0]);
+    // $viewData['comments'] = Comment::with('comments')->where([
+    //   ['id_game', '=', $viewData['game']->getId()],
+    //   ['id_comment', '=', null],
+    // ])->get();
+    // dd($viewData['comments']);
     $viewData['images'] = File::files(public_path("image/games/" . $viewData['game']->getId()));
     return view("game.index")->with("viewData", $viewData);
   }

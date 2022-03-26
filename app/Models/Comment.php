@@ -17,6 +17,11 @@ class Comment extends Model
   // $this->attributes['id_comment'] - id - if this comment is response of other comment
 
   protected $fillable = ['id', 'comment', 'id_game', 'id_comment', 'id_user'];
+
+  public function comments()
+  {
+    return $this->hasMany(Comment::class, 'id_comment', 'id');
+  }
   
   public static function validate($request)
   {
@@ -73,5 +78,15 @@ class Comment extends Model
   public function setIdComment($idComment)
   {
     $this->attributes['id_comment'] = $idComment;
+  }
+
+  public function getCreateAt()
+  {
+    return $this->attributes['created_at'];
+  }
+
+  public function getUpdateAt()
+  {
+    return $this->attributes['updated_at'];
   }
 }

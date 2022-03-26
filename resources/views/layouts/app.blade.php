@@ -56,7 +56,9 @@
           <li class="nav-item d-flex">
               <a class="btn btn-outline-light mx-3" href="{{ route('home.about') }}">Account</a>
           </li>
-          <form id="logout" action="{{ route('logout') }}" method="POST" class="d-flex">
+          <form id="logout" action="{{ route('logout')  }}" method="POST" class="d-flex">
+            @csrf
+            @method('POST')
             <button class="btn btn-outline-light mx-3 ml-15" type="submit">Logout</button>
           </form>
         </div>
