@@ -23,7 +23,11 @@
           <i class="fa-solid fa-comment fs-5 mb-1 me-2"></i>
           <h3>Comment</h3>
         </div>
-        <a href="{{ route('register')}}" class="btn btn-outline-light mt-5">Get Started</a>
+        @guest
+          <a href="{{ route('register')}}" class="btn btn-outline-light mt-5">Get Started</a>
+        @else
+          <a href="{{ route('category.index')}}" class="btn btn-outline-light mt-5">See Categories</a>
+        @endguest 
       </div>
 
     </div>

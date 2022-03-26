@@ -36,17 +36,10 @@ class CommentController extends Controller
      */
     public function store(Request $request, $id)
     {
-      $userId = Auth::id();
-      $comment = new Comment();
-      $comment->setComment($request->comment);
-      $comment->setIdGame($id);
-      $comment->setIdUser($userId);
-      if($request->idComment){
-        $comment->setIdComment($idComment);
-      }else{
-        $comment->setIdComment(null);
-      }
-      $comment->save();
+      Comment::validate($request);
+      $data = ["comment" => $request->comment, "id_game" => $id, "id_comment" => ($request->idComment ? $request->idComment : null), "id_user" =>  Auth::id()];
+
+      Comment::create($data);
 
       return back();
     }
