@@ -21,34 +21,36 @@ Route::get('/category/{id}', 'App\Http\Controllers\CategoryController@show')->na
 // Game page
 Route::get('/game/{id}', 'App\Http\Controllers\GameController@index')->name('game.index');
 
-// Buy game
-Route::get('/game/buy/{id}', 'App\Http\Controllers\GameController@buy')->name('game.buy');
-
-//cart index
-Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
-
-//add cart
-Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
-
-//cart remove all
-Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
-
-// Cart remove specific item
-Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
-
-// Buy all games in cart
-Route::get('/cart/checkOut/', 'App\Http\Controllers\CartController@checkOut')->name("cart.checkOut");
-
-// Create new comment
-Route::post('/comment/create/{id}', 'App\Http\Controllers\CommentController@store')->name("comment.store");
-
-// Create new comment
-Route::get('/image/{id}', 'App\Http\Controllers\HomeController@view')->name("image");
-
+// Routhes about auth
 Auth::routes();
 
+// Paths only to client
+Route::middleware('client')->group(function () {
+  // Buy game
+  Route::get('/game/buy/{id}', 'App\Http\Controllers\GameController@buy')->name('game.buy');
+
+  //cart index
+  Route::get('/cart', 'App\Http\Controllers\CartController@index')->name("cart.index");
+
+  //add cart
+  Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+  // Create new comment
+  Route::post('/comment/create/{id}', 'App\Http\Controllers\CommentController@store')->name("comment.store");
+
+  //cart remove all
+  Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");
+
+  // Cart remove specific item
+  Route::get('/cart/remove/{id}', 'App\Http\Controllers\CartController@remove')->name("cart.remove");
+
+  // Buy all games in cart
+  Route::get('/cart/checkOut/', 'App\Http\Controllers\CartController@checkOut')->name("cart.checkOut");
+});
+
+// Paths only to  admin
 Route::middleware('admin')->group(function () {
 
+  // Home page admin
   Route::get('/admin', 'App\Http\Controllers\AdminHomeController@index')->name("admin.index");
 
   // Admin game page
