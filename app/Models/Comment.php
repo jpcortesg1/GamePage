@@ -22,7 +22,7 @@ class Comment extends Model
   {
     return $this->hasMany(Comment::class, 'id_comment', 'id');
   }
-  
+
   public static function validate($request)
   {
     $request->validate([

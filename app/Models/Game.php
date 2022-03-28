@@ -25,13 +25,13 @@ class game extends Model
   public static function validate($request)
   {
     $request->validate([
-      'name'=>'required|max:255',
-      'developer'=>'required|max:255',
-      'description'=>'required:max:6000',
-      'idCategory'=>'required:number',
-      'releasedate'=>'required|max:255',
-      'price'=>'required|max:2000',
-      'agerating'=>'required',
+      'name' => 'required|max:255',
+      'developer' => 'required|max:255',
+      'description' => 'required:max:6000',
+      'idCategory' => 'required:number',
+      'releasedate' => 'required|max:255',
+      'price' => 'required|max:2000',
+      'agerating' => 'required',
       'image' => 'required|image'
     ]);
   }
@@ -126,7 +126,7 @@ class game extends Model
     return $this->attributes['buyquantity'] = $buyquantity;
   }
 
-    public function getCreateAt()
+  public function getCreateAt()
   {
     return $this->attributes['created_at'];
   }

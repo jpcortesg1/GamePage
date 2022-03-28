@@ -39,8 +39,8 @@
         @foreach ($viewData['categories'] as $category)
           <div class="col-md-3">
             <div class="card my-4">
-              <img src="{{ URL::to('/') }}/image/category/{{ $category->getImage() }}" class="card-img-top" alt="..."
-                style="height: 15rem; object-fit:cover;">
+              <img src="{{ URL::to('/') }}/image/category/{{ $category->getImage() }}" class="card-img-top"
+                alt="..." style="height: 15rem; object-fit:cover;">
               <div class="card-body d-flex flex-column justify-content-center">
                 <a href="{{ route('category.show', $category->getId()) }}"
                   class="btn btn-dark">{{ $category->getName() }}</a>

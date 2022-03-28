@@ -71,8 +71,8 @@
           </div>
         </div>
         <div class="col-md-6">
-          <img 
-          src="{{ URL::to('/') }}/image/games/{{ $viewData['game']->getId() }}/{{ $viewData['game']->getImage() }}"
+          <img
+            src="{{ URL::to('/') }}/image/games/{{ $viewData['game']->getId() }}/{{ $viewData['game']->getImage() }}"
             class="card-img-top" alt="..." style="max-height: 80vh; object-fit:cover;" ; />
         </div>
       </div>
@@ -92,15 +92,15 @@
           @if ($i + 1 < count($viewData['images']))
             <div class="d-flex">
               <img
-                src="{{ URL::to('/') }}/image/games/{{ $viewData['games'][$i]->getId() }}/{{ $viewData['games'][$i]->getImage() }}"
+                src="{{ URL::to('/') }}/image/games/{{ $viewData['game']->getId() }}/{{ $viewData['images'][$i]->getFilename() }}"
                 style="height: 50vh; object-fit: cover" class="d-block w-100" alt="..." />
               <img
-                src="{{ URL::to('/') }}/image/games/{{ $viewData['games'][$i + 1]->getId() }}/{{ $viewData['games'][$i + 1]->getImage() }}"
+                src="{{ URL::to('/') }}/image/games/{{ $viewData['game']->getId() }}/{{ $viewData['images'][$i + 1]->getFilename() }}"
                 style="height: 50vh; object-fit: cover" class="d-block w-100" alt="..." />
             </div>
           @else
             <img
-              src="{{ URL::to('/') }}/image/games/{{ $viewData['games'][$i]->getId() }}/{{ $viewData['games'][$i]->getImage() }}"
+              src="{{ URL::to('/') }}/image/games/{{ $viewData['game']->getId() }}/{{ $viewData['images'][$i]->getFilename() }}"
               style="width: 100%; height: 50vh; object-fit: cover" class="d-block w-100" alt="..." />
           @endif
         </div>

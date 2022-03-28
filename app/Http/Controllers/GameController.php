@@ -12,10 +12,10 @@ class GameController extends Controller
 {
   public function subComment($comment, $viewData)
   {
-    if(count($comment->comments) <= 0){
+    if (count($comment->comments) <= 0) {
       return $viewData = $comment;
     }
-    foreach ($comment->comments as $comment){
+    foreach ($comment->comments as $comment) {
       $viewData[$comment->getId()] = [];
       return $this->subComment($comment, $viewData[$comment->getId()]);
     }
@@ -30,25 +30,18 @@ class GameController extends Controller
     $viewData["game"] = Game::find($id);
     $viewData['category'] = Category::find($viewData['game']->getIdCategory());
     $viewData['comments'] = Comment::where(
-      [['id_game', '=',   $viewData['game']->getId()],
-      ['id_comment', '=', null],
-    ])->get();
+      [
+        ['id_game', '=',   $viewData['game']->getId()],
+        ['id_comment', '=', null],
+      ]
+    )->get();
 
-    foreach ($viewData['comments'] as $comment){
+    foreach ($viewData['comments'] as $comment) {
       $viewData[$comment->getId()] = [];
       $this->subComment($comment, $viewData[$comment->getId()]);
     }
 
-    // dd($viewData['comments']);
 
-    // dd($viewData['comments']);
-    // dd($viewData['comments'][0]->comments[0]);
-    // dd($viewData['comments'][0]->comments[0]->comments[0]);
-    // $viewData['comments'] = Comment::with('comments')->where([
-    //   ['id_game', '=', $viewData['game']->getId()],
-    //   ['id_comment', '=', null],
-    // ])->get();
-    // dd($viewData['comments']);
     $viewData['images'] = File::files(public_path("image/games/" . $viewData['game']->getId()));
     return view("game.index")->with("viewData", $viewData);
   }
@@ -58,7 +51,7 @@ class GameController extends Controller
   {
     $viewData = [];
     $viewData['categories'] = Category::all();
-    return view('game.indexAdmin')->with('viewData',$viewData);
+    return view('game.indexAdmin')->with('viewData', $viewData);
   }
 
   // Return the especific admin game page 
@@ -67,7 +60,7 @@ class GameController extends Controller
     $viewData = [];
     $viewData['category'] = Category::findOrFail($id);
     $viewData['games'] = Game::where('id_category', $id)->get();
-    return view('game.showAdmin')->with('viewData',$viewData);
+    return view('game.showAdmin')->with('viewData', $viewData);
   }
 
   // Return view for create new game
@@ -82,22 +75,24 @@ class GameController extends Controller
   {
 
     Game::validate($request);
-    $filename = time() . $request->image-> getClientOriginalName();
+    $filename = time() . $request->image->getClientOriginalName();
 
-    $data = ["name" => $request->name,
-    "developer" => $request->developer,
-    "description" => $request->description,
-    "id_category" => $request->idCategory,
-    "releasedate" => $request->releasedate,
-    "price" => $request->price,
-    "agerating" => $request->agerating,
-    "buyquantity" => $request->buyquantity];
-    
+    $data = [
+      "name" => $request->name,
+      "developer" => $request->developer,
+      "description" => $request->description,
+      "id_category" => $request->idCategory,
+      "releasedate" => $request->releasedate,
+      "price" => $request->price,
+      "agerating" => $request->agerating,
+      "buyquantity" => $request->buyquantity
+    ];
+
     $game = Game::create($data);
     $game->setImage($filename);
     $game->save();
 
-    
+
     $request["image"]->move(public_path("image/games/" . $game->getId()), $filename);
 
     return redirect(route('admin.gamesCategory', $request->idCategory));
@@ -117,30 +112,29 @@ class GameController extends Controller
   public function deleteImage($param)
   {
     $params = explode(" $- ", $param);
-    File::delete(public_path('image/games/'. $params[0] . '/' . $params[1] ));
+    File::delete(public_path('image/games/' . $params[0] . '/' . $params[1]));
     return back();
   }
 
   // Add images for game
   public function addImages(Request $request, $id)
   {
-    if($request->hasfile('files')) {
-      foreach($request->file('files') as $image)
-      {
+    if ($request->hasfile('files')) {
+      foreach ($request->file('files') as $image) {
         $filename = time() . $image->getClientOriginalName();
         $image->move(public_path("image/games/" . $id), $filename);
       }
     }
     return back();
   }
-    
+
   // Return the edit game page
   public function edit($id)
   {
     $viewData = [];
     $viewData['game'] = Game::findOrFail($id);
     $viewData['categories'] = Category::all();
-    return view('game.edit')->with('viewData',$viewData);
+    return view('game.edit')->with('viewData', $viewData);
   }
 
   // Buy game
@@ -151,23 +145,23 @@ class GameController extends Controller
     $game->save();
     return back();
   }
-    
+
   // Method for update a game
   public function update(Request $request, $id)
   {
     $request->validate([
-      'name'=>'required',
-      'developer'=>'required',
-      'description'=>'required',
-      'idCategory'=>'required',
-      'releasedate'=>'required',
-      'price'=>'required',
-      'agerating'=>'required',
+      'name' => 'required',
+      'developer' => 'required',
+      'description' => 'required',
+      'idCategory' => 'required',
+      'releasedate' => 'required',
+      'price' => 'required',
+      'agerating' => 'required',
     ]);
 
     $game = Game::find($id);
-    if(isset($request->image)){
-      File::delete(public_path('image/games/'. $game->getId().'/'.$game->getImage()));
+    if (isset($request->image)) {
+      File::delete(public_path('image/games/' . $game->getId() . '/' . $game->getImage()));
       $filename = time() . $request->image->getClientOriginalName();
       $request["image"]->move(public_path("image/games/" . $game->getId()), $filename);
       $game->setImage($filename);
@@ -191,7 +185,7 @@ class GameController extends Controller
   {
     $game = Game::find($id);
     $idCategory = $game->getIdCategory();
-    File::deleteDirectory(public_path('image/games/'. $game->getId().'/'));
+    File::deleteDirectory(public_path('image/games/' . $game->getId() . '/'));
     $game->delete();
     return redirect(route('admin.gamesCategory', $idCategory));
   }
