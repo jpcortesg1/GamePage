@@ -13,7 +13,7 @@ class GameController extends Controller
   public function subComment($comment, $viewData)
   {
     if (count($comment->comments) <= 0) {
-      return $viewData = $comment;
+      return $viewData = $comment::with('user');
     }
     foreach ($comment->comments as $comment) {
       $viewData[$comment->getId()] = [];
@@ -34,7 +34,7 @@ class GameController extends Controller
         ['id_game', '=',   $viewData['game']->getId()],
         ['id_comment', '=', null],
       ]
-    )->get();
+    )->with('user')->get();
 
     foreach ($viewData['comments'] as $comment) {
       $viewData[$comment->getId()] = [];
@@ -43,6 +43,7 @@ class GameController extends Controller
 
 
     $viewData['images'] = File::files(public_path("image/games/" . $viewData['game']->getId()));
+    // dd($viewData['comments']);
     return view("game.index")->with("viewData", $viewData);
   }
 

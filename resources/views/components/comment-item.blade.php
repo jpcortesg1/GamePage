@@ -6,7 +6,7 @@
           src="https://images.pexels.com/photos/11438375/pexels-photo-11438375.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
           alt="" style="width: 3rem; height: 3rem; object-fit: cover" />
       </div>
-      <div class="name mx-3 fs-5">Jane</div>
+      <div class="name mx-3 fs-5">{{ $comment['user'][0]->getName() }}</div>
       <span class="date"> <i class="fa-solid fa-calendar"></i>{{ $comment->getCreateAt() }}</span>
     </div>
 
