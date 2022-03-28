@@ -93,17 +93,16 @@
             <a href="{{ route('game.index', $game->getId()) }}"
               class="list-group-item mb-2 list-group-item-action bg-dark text-light">
               <div class="d-flex w-100 justify-content-between">
-                <img
-                  src="{{ URL::to('/') }}/image/games/{{ $game->getId() }}/{{ $game->getImage() }}"
+                <img src="{{ URL::to('/') }}/image/games/{{ $game->getId() }}/{{ $game->getImage() }}"
                   class="" alt="..." style="width: 30%; max-height: 8rem" />
                 <div class="d-flex flex-column justify-content-center ms-2">
                   <h5 class="mb-1">{{ $game->getName() }}</h5>
                   <p class="mb-1" style="
-                              display: -webkit-box;
-                              -webkit-line-clamp: 2;
-                              -webkit-box-orient: vertical;
-                              overflow: hidden;
-                            ">
+                                  display: -webkit-box;
+                                  -webkit-line-clamp: 2;
+                                  -webkit-box-orient: vertical;
+                                  overflow: hidden;
+                                ">
                     {{ $game->getDescription() }}
                   </p>
                 </div>

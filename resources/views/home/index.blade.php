@@ -79,11 +79,11 @@
                 <div class="d-flex flex-column justify-content-center ms-2">
                   <h5 class="mb-1">{{ $game->getName() }}</h5>
                   <p class="mb-1" style="
-                          display: -webkit-box;
-                          -webkit-line-clamp: 2;
-                          -webkit-box-orient: vertical;
-                          overflow: hidden;
-                        ">
+                              display: -webkit-box;
+                              -webkit-line-clamp: 2;
+                              -webkit-box-orient: vertical;
+                              overflow: hidden;
+                            ">
                     {{ $game->getDescription() }}
                   </p>
                 </div>
@@ -114,11 +114,11 @@
                 <div class="d-flex flex-column justify-content-center ms-2">
                   <h5 class="mb-1">{{ $game->getName() }}</h5>
                   <p class="mb-1" style="
-                            display: -webkit-box;
-                            -webkit-line-clamp: 2;
-                            -webkit-box-orient: vertical;
-                            overflow: hidden;
-                          ">
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                                overflow: hidden;
+                              ">
                     {{ $game->getDescription() }}
                   </p>
                 </div>
