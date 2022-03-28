@@ -17,14 +17,26 @@ Game Store will be the next all in one site for gamers. here you can search and 
 
 ## Game Store routes
 
+Loginroute = /login
+
+Register route = /register
+
 Home route = /home
+
 Categories route = /categories
+
 About route = /about
+
 Support route = /support
+
 Admin route = /admin
+
 Admin Users route = /admin/user
+
 Admin Categories route = /admin/category
+
 Admin Games route = /admin/game
+
 
 ## Database
 
