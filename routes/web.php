@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 // Home page
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
@@ -40,6 +41,9 @@ Route::get('/cart/checkOut/', 'App\Http\Controllers\CartController@checkOut')->n
 
 // Create new comment
 Route::post('/comment/create/{id}', 'App\Http\Controllers\CommentController@store')->name("comment.store");
+
+// Create new comment
+Route::get('/image/{id}', 'App\Http\Controllers\HomeController@view')->name("image");
 
 Auth::routes();
 
