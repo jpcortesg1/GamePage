@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Game;
 
 class HomeController extends Controller
 {
@@ -11,7 +12,9 @@ class HomeController extends Controller
   {
     $viewData = [];
     $viewData['title'] = 'Home Page - Game';
-    $viewData['oe'] = 'pe';
+    $viewData['lastGames'] = Game::orderBy('created_at', 'desc')->limit(5)->get();
+    $viewData['bestsellers'] = Game::orderBy('buyquantity', 'desc')->limit(5)->get();
+    $viewData['cheapsGame'] = Game::orderBy('price', 'desc')->limit(5)->get();
     return view('home.index')->with('viewData', $viewData);
   }
 
@@ -28,5 +31,10 @@ class HomeController extends Controller
     $viewData = [];
     $viewData['title'] = 'Support Page - Game';
     return view('home.support')->with('viewData', $viewData);
+  }
+
+  public function view($id)
+  {
+    return "/si";
   }
 }
