@@ -23,6 +23,11 @@ class Comment extends Model
     return $this->hasMany(Comment::class, 'id_comment', 'id');
   }
 
+  public function user()
+  {
+    return $this->hasMany(User::class, 'id', 'id_user');
+  }
+
   public static function validate($request)
   {
     $request->validate([
