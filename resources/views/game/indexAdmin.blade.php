@@ -1,6 +1,6 @@
 @extends('adminlte::page') @section('title', 'CRUD con Laravel 8')
 @section('content_header')
-  <h1>Games List</h1>
+  <h1>@lang('messages.gameList')</h1>
   @stop @section('content')
 
   <div class="d-flex flex-wrap justify-content-around">
@@ -11,11 +11,11 @@
           <h3 class="card-title">{{ $category->getName() }}</h3>
           <div class="card-tools">
             <a href="{{ route('admin.gameCreate', $category->getId()) }}" class="btn btn-dark mb-3">
-              Create
+            @lang('messages.gameCreate')
               <i class="fas fa-plus"></i>
             </a>
             <a href="{{ route('admin.gamesCategory', $category->getId()) }}" class="btn btn-dark mb-3">
-              See all
+            @lang('messages.gameSeeAll')
               <i class="fas fa-eye"></i>
             </a>
           </div>

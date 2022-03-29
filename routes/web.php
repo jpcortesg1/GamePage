@@ -30,6 +30,8 @@ Route::middleware('client')->group(function () {
   // View profile of user
   Route::get("/profile/{id}", 'App\Http\Controllers\UserController@show')->name('user.show');
 
+  Route::get("/profile/client/{id}", 'App\Http\Controllers\UserController@show')->name('user.showclient');
+
   // View profile of user
   Route::put("/profile/update/{id}", 'App\Http\Controllers\UserController@update')->name('user.update');
 

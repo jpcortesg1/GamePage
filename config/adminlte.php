@@ -247,6 +247,11 @@ return [
             'can'  => 'manage-blog',
         ],
         [
+            'text'        => 'Home',
+            'url'         => '/',
+            'icon'        => 'fas fa-fw fa-home',
+        ],
+        [
             'text'        => 'Info',
             'url'         => 'admin',
             'icon'        => 'fas fa-fw fa-info',
@@ -266,7 +271,6 @@ return [
             'url'         => 'admin/game',
             'icon'        => 'fas fa-fw fa-gamepad',
         ],
-        
        
         ['header' => 'labels'],
         [
