@@ -1,4 +1,4 @@
-<p align="center"><a href="http://127.0.0.1:8000" target="_blank"><img src="\public\img\logo1.png" width="400"></a></p>
+<p align="center"><a href="http://127.0.0.1:8000" target="_blank"><img src="https://ibb.co/TmmrYmx" width="400"></a></p>
 
 ## About Game Store
 
