@@ -4,14 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
-  /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
   public function index()
   {
     //
@@ -25,23 +22,15 @@ class UserController extends Controller
     $viewData["title"] = "Admin Users";
     return view('user.indexAdmin')->with('viewData', $viewData);
   }
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
+
+  // View of create new user
   public function create()
   {
     $viewData["title"] = "Admin create user";
     return view('user.create')->with("viewData", $viewData);
   }
 
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
+  // Method to create new user
   public function store(Request $request)
   {
     $request->validate([
@@ -62,23 +51,16 @@ class UserController extends Controller
     return redirect(route('admin.user', $request->idUser));
   }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
+  // Return view of specific user
   public function show($id)
   {
-    //
+    $viewData = [];
+    $viewData['user'] = User::where('id', $id)->with('comments')->with('game')->get()[0];
+    $viewData['current'] = Auth::id() == $id;
+    return view('user.show')->with('viewData', $viewData);
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
+  // Return view to edit new user
   public function edit($id)
   {
     $viewData = [];
@@ -87,39 +69,34 @@ class UserController extends Controller
     return view('user.edit')->with('viewData', $viewData);
   }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
+  // Method to update new user
   public function update(Request $request, $id)
   {
-
-    $request->validate([
-      'name' => 'required',
-      'email' => 'required',
-      'passwword' => 'required',
-      'rol' => 'required'
-    ]);
-
+    User::validate($request);
     $user = User::find($id);
+
+    // Password
+    // Logic where change of pasword
+
+    // Image
+    if (isset($request->image)) {
+      if ($user->getImage() != "no-image.png") {
+        File::delete(public_path('image/user/' . $user->getImage()));
+      }
+      $filename = time() . $request->image->getClientOriginalName();
+      $request["image"]->move(public_path("image/user"), $filename);
+      $user->setImage($filename);
+    }
 
     $user->setName($request->name);
     $user->setEmail($request->email);
 
     $user->save();
 
-    return redirect(route('admin.user', $user->getId()));
+    return back();
   }
 
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
+  // Method for delete new user
   public function destroy($id)
   {
     $user = User::findOrFail($id);

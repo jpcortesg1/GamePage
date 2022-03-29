@@ -26,6 +26,13 @@ Auth::routes();
 
 // Paths only to client
 Route::middleware('client')->group(function () {
+
+  // View profile of user
+  Route::get("/profile/{id}", 'App\Http\Controllers\UserController@show')->name('user.show');
+
+  // View profile of user
+  Route::put("/profile/update/{id}", 'App\Http\Controllers\UserController@update')->name('user.update');
+
   // Buy game
   Route::get('/game/buy/{id}', 'App\Http\Controllers\GameController@buy')->name('game.buy');
 
@@ -34,8 +41,12 @@ Route::middleware('client')->group(function () {
 
   //add cart
   Route::get('/cart/add/{id}', 'App\Http\Controllers\CartController@add')->name("cart.add");
+
   // Create new comment
   Route::post('/comment/create/{id}', 'App\Http\Controllers\CommentController@store')->name("comment.store");
+
+  // Create new comment
+  Route::get('/comment/delete/{id}', 'App\Http\Controllers\CommentController@destroy')->name("comment.delete");
 
   //cart remove all
   Route::get('/cart/removeAll/', 'App\Http\Controllers\CartController@removeAll')->name("cart.removeAll");

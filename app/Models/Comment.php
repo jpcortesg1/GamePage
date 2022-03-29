@@ -23,9 +23,34 @@ class Comment extends Model
     return $this->hasMany(Comment::class, 'id_comment', 'id');
   }
 
+  public function subComment($comment, $viewData)
+  {
+    if (count($comment->comments) <= 0) {
+      return $viewData = $comment::with('user');
+    }
+    foreach ($comment->comments as $comment) {
+      $viewData[$comment->getId()] = [];
+      return $this->subComment($comment, $viewData[$comment->getId()]);
+    }
+  }
+
+  public function deleteSubComments($comment){
+    if(isset($comment->comments[0])){
+      foreach($comment->comments as $subComment){
+        $this->deleteSubComments($subComment);
+      }
+    }
+    $comment->delete();
+  }
+
   public function user()
   {
     return $this->hasMany(User::class, 'id', 'id_user');
+  }
+
+  public function game()
+  {
+    return $this->hasMany(Game::class, 'id', 'id_game');
   }
 
   public static function validate($request)

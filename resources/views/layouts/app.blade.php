@@ -9,6 +9,20 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/d0753c10f6.js" crossorigin="anonymous"></script>
+  <style>
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgb(179, 179, 179);
+    }
+
+  </style>
   <title>@yield("title", "CRUD")</title>
 </head>
 
@@ -51,7 +65,7 @@
           </a>
         </li>
         <li class="nav-item d-flex">
-          <a class="btn btn-outline-light mx-3" href="{{ route('home.about') }}">Account</a>
+          <a class="btn btn-outline-light mx-3" href="{{ route('user.show', Auth::id()) }}">Account</a>
         </li>
         <form id="logout" action="{{ route('logout') }}" method="POST" class="d-flex">
           @csrf

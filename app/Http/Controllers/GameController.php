@@ -10,17 +10,6 @@ use Illuminate\Support\Facades\File;
 
 class GameController extends Controller
 {
-  public function subComment($comment, $viewData)
-  {
-    if (count($comment->comments) <= 0) {
-      return $viewData = $comment::with('user');
-    }
-    foreach ($comment->comments as $comment) {
-      $viewData[$comment->getId()] = [];
-      return $this->subComment($comment, $viewData[$comment->getId()]);
-    }
-  }
-
   // Retunr the client game page  
   public function index($id)
   {
@@ -38,7 +27,7 @@ class GameController extends Controller
 
     foreach ($viewData['comments'] as $comment) {
       $viewData[$comment->getId()] = [];
-      $this->subComment($comment, $viewData[$comment->getId()]);
+      $comment->subComment($comment, $viewData[$comment->getId()]);
     }
 
 

@@ -39,8 +39,8 @@
       <select class="form-control" name="idCategory">
         @foreach ($viewData['categories'] as $category)
           <option value="{{ $category->getId() }}"
-            {{             $category->getId() == $viewData['game']->getIdCategory() ? 'selected' : '' }}>
-            {{             $category->getName() }}
+            {{ $category->getId() == $viewData['game']->getIdCategory() ? 'selected' : '' }}>
+            {{ $category->getName() }}
           </option>
         @endforeach
       </select>
@@ -57,7 +57,8 @@
     </div>
     <div class="mb-3">
       <label for="" class="form-label">Price</label>
-      <input id="price" name="price" type="number" class="form-control" value="{{ $viewData['game']->getPrice() }}" />
+      <input id="price" name="price" type="number" class="form-control"
+        value="{{ $viewData['game']->getPrice() }}" />
       @error('price')
         <span class="invalid-feedback d-block" role="alert">
           <strong>*{{ $message }}</strong>

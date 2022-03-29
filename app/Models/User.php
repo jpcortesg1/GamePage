@@ -22,6 +22,26 @@ class User extends Authenticatable
   protected $hidden = ['password', 'remember_token',];
   protected $casts = ['email_verified_at' => 'datetime',];
 
+  public static function validate($request)
+  {
+    $request->validate([
+      'name' => 'required|max:255|',
+      'email' => 'required|max:255|email',
+      'password' => 'nullable|max:255|min:6',
+      'image' => 'nullable|image'
+    ]);
+  }
+
+  public function comments()
+  {
+    return $this->hasMany(Comment::class, 'id_user', 'id')->orderBy('created_at', 'desc');
+  }
+
+  public function game()
+  {
+    return $this->hasOne(Game::class, 'id', 'id_game');
+  }
+
   public function getRol()
   {
     return $this->attributes['rol'];
@@ -70,6 +90,16 @@ class User extends Authenticatable
   public function setPassword($password)
   {
     return $this->attributes['password'] = $password;
+  }
+
+  public function getImage()
+  {
+    return $this->attributes['image'];
+  }
+
+  public function setImage($image)
+  {
+    return $this->attributes['image'] = $image;
   }
 
   public function getCreateAt()
