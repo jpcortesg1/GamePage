@@ -67,6 +67,11 @@
         <li class="nav-item d-flex">
           <a class="btn btn-outline-light mx-3" href="{{ route('user.show', Auth::id()) }}">Account</a>
         </li>
+        @if (Auth::user()->getRol() == 'admin')
+          <li class="nav-item d-flex">
+            <a class="btn btn-outline-light mx-3" href="{{ route('admin.index', Auth::id()) }}">Admin</a>
+          </li>
+        @endif
         <form id="logout" action="{{ route('logout') }}" method="POST" class="d-flex">
           @csrf
           @method('POST')
