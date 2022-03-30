@@ -85,6 +85,7 @@ class UserController extends Controller
 
     $user->setName($request->name);
     $user->setEmail($request->email);
+    $user->setRol($request->rol);
 
     $user->save();
 

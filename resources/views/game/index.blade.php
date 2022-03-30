@@ -1,7 +1,7 @@
 @extends("layouts.app") @section('title', $viewData['title'])
 @section('content')
 
-  <div class="bg-dark text-light">
+  <div class="bg-dark text-light pt-5">
     <div class="container">
       <div class="row d-flex justify-content-center align-items-center" style="min-height: calc(100vh - 3rem)">
         <div class="col-md-6">
