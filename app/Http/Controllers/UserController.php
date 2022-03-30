@@ -33,12 +33,7 @@ class UserController extends Controller
   // Method to create new user
   public function store(Request $request)
   {
-    $request->validate([
-      'name' => 'required',
-      'email' => 'required',
-      'passwword' => 'required',
-      'rol' => 'required'
-    ]);
+    User::validateRegister($request);
 
     $user = new User();
     $user->setName($request->name);

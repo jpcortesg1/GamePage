@@ -88,7 +88,7 @@ class CommentController extends Controller
   {
     $comment = Comment::find($id);
     $comment->deleteSubComments($comment);
-    
+
     return back();
   }
 }

@@ -32,6 +32,16 @@ class User extends Authenticatable
     ]);
   }
 
+  public static function validateRegister($request)
+  {
+    $request->validate([
+      'name' => 'required|max:255|',
+      'email' => 'required|max:255|email',
+      'password' => 'max:255|min:6',
+      'image' => 'nullable|image'
+    ]);
+  }
+
   public function comments()
   {
     return $this->hasMany(Comment::class, 'id_user', 'id')->orderBy('created_at', 'desc');
