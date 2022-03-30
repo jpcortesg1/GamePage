@@ -20,7 +20,7 @@
                 @method('PUT')
                 @csrf
                 <div class="mb-3">
-                  <label for="name" class="form-label">Name:</label>
+                  <label for="name" class="form-label">@lang('messages.userName'):</label>
                   <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp"
                     value="{{ $viewData['user']->getName() }}">
                   @error('name')
@@ -30,7 +30,7 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email:</label>
+                  <label for="email" class="form-label">@lang('messages.userEmail'):</label>
                   <input type="email" class="form-control" id="email" name="email"
                     value="{{ $viewData['user']->getEmail() }}">
                   @error('email')
@@ -40,7 +40,7 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label for="password" class="form-label">Password:</label>
+                  <label for="password" class="form-label">@lang('messages.userPassword'):</label>
                   <input type="password" class="form-control" id="password" name="password"
                     placeholder="writte your new password">
                   @error('password')
@@ -50,7 +50,7 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label class="form-check-label" for="image">Image</label>
+                  <label class="form-check-label" for="image">@lang('messages.userImage')</label>
                   <input type="file" class="" id="image" name="image">
                   @error('image')
                     <span class="invalid-feedback d-block" role="alert">
@@ -62,7 +62,7 @@
                   <img src="{{ URL::to('/') }}/image/user/{{ $viewData['user']->getImage() }}" alt=""
                     style="max-width: 10rem; max-height: 10rem; object-fit: cover;">
                 </div>
-                <button type="submit" class="btn btn-outline-light">Update</button>
+                <button type="submit" class="btn btn-outline-light">@lang('messages.userUpdate')</button>
               </form>
             @else
               <div class="image d-flex justify-content-center">
@@ -70,15 +70,15 @@
                   style="max-width: 10rem; max-height: 10rem; object-fit: cover;">
               </div>
               <div class="group d-flex flex-column justify-content-center align-items-center">
-                <span class="fw-bold">Name: </span>
+                <span class="fw-bold">@lang('messages.userName'): </span>
                 <p class="fw-light">{{ $viewData['user']->getName() }}</p>
               </div>
               <div class="group d-flex flex-column justify-content-center align-items-center">
-                <span class="fw-bold">Email: </span>
+                <span class="fw-bold">@lang('messages.userEmail'): </span>
                 <p class="fw-light">{{ $viewData['user']->getEmail() }}</p>
               </div>
               <div class="group d-flex flex-column justify-content-center align-items-center">
-                <span class="fw-bold">Created At: </span>
+                <span class="fw-bold">@lang('messages.userCreatedAt'): </span>
                 <p class="fw-light">{{ $viewData['user']->getCreateAt() }}</p>
               </div>
             @endif

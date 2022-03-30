@@ -6,7 +6,7 @@
 
     <p>{{ $viewData['category']->getDescription() }}</p>
 
-    <h3 class="text-center my-5">News</h3>
+    <h3 class="text-center my-5">@lang('messages.newGames')</h3>
 
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -39,7 +39,7 @@
       </button>
     </div>
 
-    <h3 class="text-center my-5">Highlights</h3>
+    <h3 class="text-center my-5">@lang('messages.highlights')</h3>
 
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class="carousel-indicators">

@@ -33,6 +33,14 @@ return [
     'categoryQuestion' => 'How?',
     'categoryDescription' => 'In game store the games are separated by categories, so it is easier to find what you are looking for or find other games related to the ones you like.',
     'enter' => 'Enter',
+    'newGames' => 'New Games',
+    'highlights' => 'Highlights',
+
+    //cart
+    'cartTitle' => 'producst in cart',
+    'cartCheckout' => 'Checkout',
+    'cartDelete' => 'Delete All',
+    'cartRemove' => 'Remove',
 
     //about
     'aboutDescription' => 'This is the ultimate destination for buying, discussing, and everything game related.',
@@ -67,6 +75,12 @@ return [
     'send' => 'Send',
     'supportComment' => 'What Do You Need?',
 
+    //comments
+    'commentCreateNew' => 'Create new comment',
+    'comments' => 'Comments:',
+    'CommentFieldMustBeFull' => 'The field must be full',
+    'commentCreate' => 'create',
+
     //admin info
     'gameCategories' => 'Game Categories',
     'gameCount' => 'Games',
@@ -76,18 +90,21 @@ return [
     'moreInfo' => 'More Info',
     'getStarted' => 'Get Started',
 
-    //admin users
+    //users
     'userList' => 'User List',
     'userCreate' => 'Create',
     'userEdit' => 'Edit',
     'userDelete' => 'Delete',
     'userCancel' => 'Cancel',
+    'userUpdate' => 'Update',
     'userAdmin' => 'Admin',
     'userSave' => 'Save',
     'userEditUsers' => 'Edit Categories',
     'userCreateUser' => 'Create User',
     'userRole' => 'Role',
     'userName' => 'Name',
+    'userCreatedAt' => 'Created At',
+    'userImage' => 'Image',
     'userEmail' => 'Email Address',
     'userPassword' => 'Password',
     'userPasswordConfirm' => 'Confirm Password',
@@ -105,14 +122,14 @@ return [
     'categoryDescription' => 'Description',
     'categoryImage' => 'Image',
 
-
-    //admin games
+    //games
     'gameList' => 'Games List',
     'gameCreate' => 'Create',
     'gameEdit' => 'Edit',
     'gameSeeAll' => 'See All',
     'gameDelete' => 'Delete',
     'gameCancel' => 'Cancel',
+    'gameMore' => 'More',  
     'gameSave' => 'Save',
     'gameEditGames' => 'Edit Games',
     'gameCreateGame' => 'This game will be:',
@@ -132,4 +149,6 @@ return [
     'gameImages' => 'Images',  
     'gameAllImages' => 'All Images',  
     'gameClose' => 'close',  
+    'gameAddToCart' => 'Add to cart',  
+    'gameBuyNow' => 'Buy now',  
 ];
