@@ -14,7 +14,7 @@ class HomeController extends Controller
     $viewData['title'] = 'Home Page - Game';
     $viewData['lastGames'] = Game::orderBy('created_at', 'desc')->limit(5)->get();
     $viewData['bestsellers'] = Game::orderBy('buyquantity', 'desc')->limit(5)->get();
-    $viewData['cheapsGame'] = Game::orderBy('price', 'desc')->limit(5)->get();
+    $viewData['cheapsGame'] = Game::orderBy('price', 'asc')->limit(5)->get();
     return view('home.index')->with('viewData', $viewData);
   }
 
