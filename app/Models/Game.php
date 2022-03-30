@@ -36,6 +36,20 @@ class game extends Model
     ]);
   }
 
+  public static function validateUpdate($request)
+  {
+    $request->validate([
+      'name' => 'required|max:255',
+      'developer' => 'required|max:255',
+      'description' => 'required:max:6000',
+      'idCategory' => 'required:number',
+      'releasedate' => 'required|max:255',
+      'price' => 'required|max:2000',
+      'agerating' => 'required',
+      'image' => 'nullable|image'
+    ]);
+  }
+
   public function getId()
   {
     return $this->attributes['id'];

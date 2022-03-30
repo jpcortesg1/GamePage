@@ -139,15 +139,7 @@ class GameController extends Controller
   // Method for update a game
   public function update(Request $request, $id)
   {
-    $request->validate([
-      'name' => 'required',
-      'developer' => 'required',
-      'description' => 'required',
-      'idCategory' => 'required',
-      'releasedate' => 'required',
-      'price' => 'required',
-      'agerating' => 'required',
-    ]);
+    Game::validateUpdate($request);
 
     $game = Game::find($id);
     if (isset($request->image)) {
