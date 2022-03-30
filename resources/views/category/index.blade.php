@@ -5,23 +5,22 @@
   <div class="d-flex justify-content-around align-items-center" style="height: calc(100vh - 3rem);">
     <div class="container d-flex justify-content-around align-items-center">
       <div class="col-md-5">
-        <h1>Category</h1>
-        <h2>How?</h2>
-        <p class="fs-3">In game store the games are separated by categories, so it is easier to find what you are
-          looking for or find other games related to the ones you like.</p>
+        <h1>@lang('messages.categoryTitle')</h1>
+        <h2>@lang('messages.categoryQuestion')</h2>
+        <p class="fs-3">@lang('messages.categoryDescription')</p>
 
         <div class="row">
           <div class="col-md-4 d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-magnifying-glass fs-5 mb-1 me-2"></i>
-            <h3>Search</h3>
+            <h3>@lang('messages.search')</h3>
           </div>
           <div class="col-md-4 d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-arrow-pointer fs-5 mb-1 me-2"></i>
-            <h3>Enter</h3>
+            <h3>@lang('messages.enter')</h3>
           </div>
           <div class="col-md-4 d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-cart-shopping fs-5 mb-1 me-2"></i>
-            <h3>Buying</h3>
+            <h3>@lang('messages.buy')</h3>
           </div>
         </div>
 

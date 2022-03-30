@@ -12,48 +12,48 @@
             <li class="list-group-item d-flex bg-dark text-light">
               <p class="w-100">
                 <i class="fas fa-user"></i>
-                <span class="font-weight-bold">Developer: </span>
+                <span class="font-weight-bold">@lang('messages.gameDeveloper'): </span>
                 {{ $viewData['game']->getDeveloper() }}
               </p>
               <p class="w-100">
                 <i class="fas fa-tag"></i>
-                <span class="font-weight-bold">Category: </span>
+                <span class="font-weight-bold">@lang('messages.gameName'): </span>
                 {{ $viewData['category']->getName() }}
               </p>
             </li>
             <li class="list-group-item d-flex bg-dark text-light">
               <p class="w-100">
                 <i class="fas fa-dollar-sign"></i>
-                <span class="font-weight-bold">Price: </span>
+                <span class="font-weight-bold">@lang('messages.gamePrice'): </span>
                 {{ $viewData['game']->getPrice() }}
               </p>
               <p class="w-100">
                 <i class="fas fa-id-badge"></i>
-                <span class="font-weight-bold">Age Rating: </span>
+                <span class="font-weight-bold">@lang('messages.gameAgeRating'): </span>
                 {{ $viewData['game']->getAgerating() }}
               </p>
             </li>
             <li class="list-group-item d-flex bg-dark text-light">
               <p class="w-100">
                 <i class="fas fa-abacus"></i>
-                <span class="font-weight-bold">Buy quantity: </span>
+                <span class="font-weight-bold">@lang('messages.gameBuyQuantity'): </span>
                 {{ $viewData['game']->getBuyquantity() }}
               </p>
               <p class="w-100">
                 <i class="fas fa-calendar-plus"></i>
-                <span class="font-weight-bold">Release Data: </span>
+                <span class="font-weight-bold">@lang('messages.gameRealeaseDate'): </span>
                 {{ $viewData['game']->getReleasedate() }}
               </p>
             </li>
             <li class="list-group-item d-flex bg-dark text-light">
               <p class="w-100">
                 <i class="fas fa-calendar"></i>
-                <span class="font-weight-bold">Date update: </span>
+                <span class="font-weight-bold">@lang('messages.gameDateUpdated'): </span>
                 {{ $viewData['game']->getUpdateAt() }}
               </p>
               <p class="w-100">
                 <i class="fas fa-calendar-check"></i>
-                <span class="font-weight-bold">Date create: </span>
+                <span class="font-weight-bold">@lang('messages.gameDateCreated'): </span>
                 {{ $viewData['game']->getCreateAt() }}
               </p>
             </li>
@@ -61,11 +61,11 @@
 
           <div class="card-body d-flex justify-content-evenly">
             <a class="btn btn-outline-light" href="{{ route('cart.add', $viewData['game']->getId()) }}">
-              Add To Cart
+            @lang('messages.gameAddToCart')
               <i class="fa-solid fa-cart-arrow-down"></i>
             </a>
             <a href="{{ route('game.buy', $viewData['game']->getId()) }}" class="btn btn-outline-light">
-              Buy now
+            @lang('messages.gameBuyNow')
               <i class="fa-solid fa-money-bill"></i>
             </a>
           </div>
@@ -122,7 +122,7 @@
       <div class="d-flex justify-content-center align-items-center">
         <p class="fs-3">
           <i class="fa-solid fa-comments fs-1"></i>
-          <span class="fw-bold">Comments: </span>
+          <span class="fw-bold">@lang('messages.comments') </span>
           294
         </p>
       </div>
@@ -133,11 +133,11 @@
         <div class="form-floating">
           <textarea class="form-control bg-dark text-light" placeholder="Leave a comment here" id="floatingTextarea"
             name="comment"></textarea>
-          <label for="floatingTextarea">Create new comment</label>
+          <label for="floatingTextarea">@lang('messages.commentCreateNew')</label>
           @error('comment')
-            <div class="alert alert-danger mt-2">The field must be full</div>
+            <div class="alert alert-danger mt-2">@lang('messages.CommentFieldMustBeFull')</div>
           @enderror
-          <button type="submit" class="btn btn-outline-light mt-2">Create</button>
+          <button type="submit" class="btn btn-outline-light mt-2">@lang('messages.commentCreate')</button>
         </div>
       </form>
 

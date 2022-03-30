@@ -1,9 +1,9 @@
 @extends('adminlte::page') @section('title', $viewData['title'])
 @section('content_header')
-  <h1>User List</h1>
+  <h1>@lang('messages.userList')</h1>
   @stop @section('content')
   <a href="{{ route('admin.userCreate') }}" class="btn btn-dark mb-3">
-    Create
+  @lang('messages.userCreate')
     <i class="fas fa-plus"></i>
   </a>
 
@@ -17,17 +17,17 @@
             <form class="" action="{{ route('admin.userDelete', $user->getId()) }}">
               @csrf @method('GET')
               <a href="{{ route('admin.userEdit', $user->getId()) }}" class="btn btn-dark mb-3">
-                Edit
+              @lang('messages.userEdit')
                 <i class="fas fa-pen"></i>
               </a>
               <button class="btn btn-dark mb-3" type="submit">
-                Delete
+              @lang('messages.userDelete')
                 <i class="fas fa-trash"></i>
               </button>
             </form>
           @else
             <div class="">
-              <p style="font-size: 1.3rem;">Admin</p>
+              <p style="font-size: 1.3rem;">@lang('messages.userAdmin')</p>
             </div>
           @endif
         </div>

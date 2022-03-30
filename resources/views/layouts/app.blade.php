@@ -39,24 +39,24 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{{ route('home.index') }}">Home</a>
+            <a class="nav-link" aria-current="page" href="{{ route('home.index') }}">@lang('messages.homeButton')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('category.index') }}">Categories</a>
+            <a class="nav-link" href="{{ route('category.index') }}">@lang('messages.categoryButton')</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('home.about') }}">About</a>
+            <a class="nav-link" href="{{ route('home.about') }}">@lang('messages.aboutButton')</a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('home.support') }}" class="nav-link">Support</a>
+            <a href="{{ route('home.support') }}" class="nav-link">@lang('messages.supportButton')</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="vr bg-white mx-2 d-none d-lg-block"></div>
     @guest
-      <a class="btn btn-outline-light mx-3" href="{{ route('login') }}">Login</a>
-      <a class="btn btn-outline-light mx-3" href="{{ route('register') }}">Register</a>
+      <a class="btn btn-outline-light mx-3" href="{{ route('login') }}">@lang('messages.loginButton')</a>
+      <a class="btn btn-outline-light mx-3" href="{{ route('register') }}">@lang('messages.registerButton')</a>
     @else
       <div class="d-flex">
         <li class="nav-item d-flex">
@@ -65,17 +65,17 @@
           </a>
         </li>
         <li class="nav-item d-flex">
-          <a class="btn btn-outline-light mx-3" href="{{ route('user.show', Auth::id()) }}">Account</a>
+          <a class="btn btn-outline-light mx-3" href="{{ route('user.show', Auth::id()) }}">@lang('messages.accountButton')</a>
         </li>
         @if (Auth::user()->getRol() == 'admin')
           <li class="nav-item d-flex">
-            <a class="btn btn-outline-light mx-3" href="{{ route('admin.index', Auth::id()) }}">Admin</a>
+            <a class="btn btn-outline-light mx-3" href="{{ route('admin.index', Auth::id()) }}">@lang('messages.adminButton')</a>
           </li>
         @endif
         <form id="logout" action="{{ route('logout') }}" method="POST" class="d-flex">
           @csrf
           @method('POST')
-          <button class="btn btn-outline-light mx-3 ml-15" type="submit">Logout</button>
+          <button class="btn btn-outline-light mx-3 ml-15" type="submit">@lang('messages.logoutButton')</button>
         </form>
       </div>
       @csrf
@@ -105,9 +105,7 @@
       </section>
       <section class="mb-4">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio
-          earum repellat quaerat voluptatibus placeat nam, commodi optio pariatur
-          est quia magnam eum harum corrupti dicta, aliquam sequi voluptate quas.
+        @lang('messages.footerDescription')
         </p>
       </section>
     </div>

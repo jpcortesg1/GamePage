@@ -6,28 +6,28 @@
   <div class="bg-dark text-light d-flex justify-content-around align-items-center" style="height: calc(100vh - 3rem);">
     <div class="container d-flex justify-content-around align-items-center">
       <div class="col-md-5">
-        <h1>Game Store</h1>
-        <h2>Why?</h2>
-        <p class="fs-3">Because is the best page to search, buy and review games.</p>
+        <h1>@lang('messages.title')</h1>
+        <h2>@lang('messages.question')</h2>
+        <p class="fs-3">@lang('messages.answer')</p>
 
-        <h3 class="text-center">You Can:</h3>
+        <h3 class="text-center">@lang('messages.youcan')</h3>
         <div class="row">
           <div class="col-md-4 d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-money-bill fs-5 mb-1 me-2"></i>
-            <h3>Buy</h3>
+            <h3>@lang('messages.buy')</h3>
           </div>
           <div class="col-md-4 d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-magnifying-glass fs-5 mb-1 me-2"></i>
-            <h3>Search</h3>
+            <h3>@lang('messages.search')</h3>
           </div>
           <div class="col-md-4 d-flex justify-content-center align-items-center">
             <i class="fa-solid fa-comment fs-5 mb-1 me-2"></i>
-            <h3>Comment</h3>
+            <h3>@lang('messages.comment')</h3>
           </div>
           @guest
-            <a href="{{ route('register') }}" class="btn btn-outline-light mt-5">Get Started</a>
+            <a href="{{ route('register') }}" class="btn btn-outline-light mt-5">@lang('messages.getstarted')</a>
           @else
-            <a href="{{ route('category.index') }}" class="btn btn-outline-light mt-5">See Categories</a>
+            <a href="{{ route('category.index') }}" class="btn btn-outline-light mt-5">@lang('messages.seecategories')</a>
           @endguest
         </div>
 
@@ -67,7 +67,7 @@
     <!-- List -->
     <div class="row">
       <div class="list-group my-5 col-md-6">
-        <h2 class="text-center">Last Games</h2>
+        <h2 class="text-center">@lang('messages.lastgames')</h2>
 
         @foreach ($viewData['bestsellers'] as $game)
           <div class="col-md-12 bg-dark text-light d-flex p-1">
@@ -102,7 +102,7 @@
 
       </div>
       <div class="list-group my-5 col-md-6">
-        <h2 class="text-center">Cheaps</h2>
+        <h2 class="text-center">@lang('messages.cheapgames')</h2>
 
         @foreach ($viewData['cheapsGame'] as $game)
           <div class="col-md-12 bg-dark text-light d-flex p-1">

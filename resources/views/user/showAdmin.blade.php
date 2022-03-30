@@ -4,7 +4,7 @@
   @stop @section('content')
 
   <a href="{{ route('admin.userCreate', $viewData['user']->getId()) }}" class="btn btn-dark mb-3">
-    Create
+  @lang('messages.userCreate')
     <i class="fas fa-plus"></i>
   </a>
 
@@ -17,11 +17,11 @@
           <form class="card-tools" action="{{ route('admin.userDelete', $user->getId()) }}">
             @csrf @method('GET')
             <a href="{{ route('admin.userEdit', $user->getId()) }}" class="btn btn-dark mb-3">
-              Edit
+            @lang('messages.userEdit')
               <i class="fas fa-pen"></i>
             </a>
             <button class="btn btn-dark mb-3" type="submit">
-              Delete
+            @lang('messages.userDelete')
               <i class="fas fa-trash"></i>
             </button>
           </form>

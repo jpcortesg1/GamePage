@@ -17,15 +17,15 @@
           <form class="card-tools" action="{{ route('admin.gameDelete', $game->getId()) }}">
             @csrf @method('GET')
             <a href="{{ route('admin.gameEdit', $game->getId()) }}" class="btn btn-dark mb-3">
-              Edit
+            @lang('messages.gameEdit')
               <i class="fas fa-pen"></i>
             </a>
             <button class="btn btn-dark mb-3" type="submit">
-              Delete
+            @lang('messages.gameDelete')
               <i class="fas fa-trash"></i>
             </button>
             <a href="{{ route('admin.gameShow', $game->getId()) }}" class="btn btn-dark mb-3">
-              More
+            @lang('messages.gameMore')
               <i class="fas fa-angle-double-right"></i>
             </a>
           </form>

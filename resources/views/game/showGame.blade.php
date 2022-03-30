@@ -9,14 +9,14 @@
         <div class="col-md-6">
           <p>
             <i class="fas fa-user"></i>
-            <span class="font-weight-bold">Developer: </span>
+            <span class="font-weight-bold">@lang('messages.gameDeveloper'): </span>
             {{ $viewData['game']->getDeveloper() }}
           </p>
         </div>
         <div class="col-md-6">
           <p>
             <i class="fas fa-tag"></i>
-            <span class="font-weight-bold">Category: </span>
+            <span class="font-weight-bold">@lang('messages.gameCategory'): </span>
             {{ $viewData['category']->getName() }}
           </p>
         </div>
@@ -25,7 +25,7 @@
         <div class="col-md-12">
           <p>
             <i class="fas fa-align-justify"></i>
-            <span class="font-weight-bold">Description: </span>
+            <span class="font-weight-bold">@lang('messages.gameDescription'): </span>
             {{ $viewData['game']->getDescription() }}
           </p>
         </div>
@@ -34,14 +34,14 @@
         <div class="col-md-6">
           <p>
             <i class="fas fa-calendar-plus"></i>
-            <span class="font-weight-bold">Release Data: </span>
+            <span class="font-weight-bold">@lang('messages.gameRealeaseDate'): </span>
             {{ $viewData['game']->getReleasedate() }}
           </p>
         </div>
         <div class="col-md-6">
           <p>
             <i class="fas fa-dollar-sign"></i>
-            <span class="font-weight-bold">Price: </span>
+            <span class="font-weight-bold">@lang('messages.gamePrice'): </span>
             {{ $viewData['game']->getPrice() }}
           </p>
         </div>
@@ -50,14 +50,14 @@
         <div class="col-md-6">
           <p>
             <i class="fas fa-id-badge"></i>
-            <span class="font-weight-bold">Age Rating: </span>
+            <span class="font-weight-bold">@lang('messages.gameAgeRating'): </span>
             {{ $viewData['game']->getAgerating() }}
           </p>
         </div>
         <div class="col-md-6">
           <p>
             <i class="fas fa-abacus"></i>
-            <span class="font-weight-bold">Buy quantity: </span>
+            <span class="font-weight-bold">@lang('messages.gameBuyQuantity'): </span>
             {{ $viewData['game']->getBuyquantity() }}
           </p>
         </div>
@@ -66,14 +66,14 @@
         <div class="col-md-6">
           <p>
             <i class="fas fa-calendar"></i>
-            <span class="font-weight-bold">Date update: </span>
+            <span class="font-weight-bold">@lang('messages.gameDateUpdated'): </span>
             {{ $viewData['game']->getUpdateAt() }}
           </p>
         </div>
         <div class="col-md-6">
           <p>
             <i class="fas fa-calendar-check"></i>
-            <span class="font-weight-bold">Date create: </span>
+            <span class="font-weight-bold">@lang('messages.gameDateCreated'): </span>
             {{ $viewData['game']->getCreateAt() }}
           </p>
         </div>
@@ -87,7 +87,7 @@
 
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#addImageModal">
-    Add images
+  @lang('messages.gameAddImage')
     <i class="fas fa-plus"></i>
   </button>
 
@@ -96,7 +96,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="addImageModalLabel">Add Images</h5>
+          <h5 class="modal-title" id="addImageModalLabel">@lang('messages.gameAddImage')</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -107,20 +107,20 @@
             @csrf
             @method('POST')
             <div class="form-group">
-              <label for="exampleInputPassword1">Images: </label>
+              <label for="exampleInputPassword1">@lang('messages.gameImages'): </label>
               <input name="files[]" type="file" class="" id="exampleInputPassword1" multiple="multiple">
             </div>
-            <button type="submit" class="btn btn-outline-light">Add Images</button>
+            <button type="submit" class="btn btn-outline-light">@lang('messages.gameAddImage')</button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">@lang('messages.gameClose')</button>
         </div>
       </div>
     </div>
   </div>
 
-  <h3 class="text-center my-5">All Images</h3>
+  <h3 class="text-center my-5">@lang('messages.gameAllImages')</h3>
 
   <div class="d-flex flex-wrap">
 
@@ -137,7 +137,7 @@
           <div class="card-body">
             <a href="{{ route('admin.gameDeleteImage', $viewData['game']->getId() . ' $- ' . $image->getFilename()) }}"
               class="btn btn-outline-danger stretched-link">
-              Delete
+              @lang('messages.gameDelete')
               <i class="fas fa-trash"></i>
             </a>
           </div>

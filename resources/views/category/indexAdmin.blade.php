@@ -1,9 +1,9 @@
 @extends('adminlte::page') @section('title', $viewData['title'])
 @section('content_header')
-  <h1>Category List</h1>
+  <h1>@lang('messages.categoryList')</h1>
   @stop @section('content')
   <a href="{{ route('admin.categoryCreate') }}" class="btn btn-dark mb-3">
-    Create
+  @lang('messages.categoryCreate')
     <i class="fas fa-plus"></i>
   </a>
 
@@ -16,11 +16,11 @@
           <form class="card-tools" action="{{ route('admin.categoryDelete', $category->getId()) }}">
             @csrf @method('GET')
             <a href="{{ route('admin.categoryEdit', $category->getId()) }}" class="btn btn-dark mb-3">
-              Edit
+            @lang('messages.categoryEdit')
               <i class="fas fa-pen"></i>
             </a>
             <button class="btn btn-dark mb-3" type="submit">
-              Delete
+            @lang('messages.categoryDelete')
               <i class="fas fa-trash"></i>
             </button>
           </form>
